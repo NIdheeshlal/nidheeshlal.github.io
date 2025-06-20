@@ -34,7 +34,7 @@
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #fff;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 15px rgba( 0, 0, 0, 0.2);
       margin-bottom: 15px;
     }
 
@@ -133,7 +133,6 @@
     <button class="tab-btn" data-tab="projects">Projects</button>
     <button class="tab-btn" data-tab="skills">Skills</button>
     <button class="tab-btn" data-tab="certs">Certifications</button>
-    <button class="tab-btn" data-tab="browser-monitor">Browser Monitor</button>
     <button class="tab-btn" data-tab="contact">Contact</button>
   </nav>
 
@@ -166,6 +165,20 @@
         <h3>Full Network Infrastructure Setup</h3>
         <p>From cabling to VLAN design — deployed secure multi-branch infra.</p>
       </div>
+      <div class="project">
+        <h3>Centralized Browser History Monitoring System</h3>
+        <p>Built a centralized system to collect and monitor browser history logs (Chrome, Edge, Firefox, Brave) across 100+ client systems.
+        Implemented using <strong>Python agents</strong> and a <strong>Flask + SB Admin dashboard</strong>. Clients push logs to a shared folder,
+        while the server visualizes logs, FIM data, and trends in a modern UI.</p>
+        <ul>
+          <li>📂 Logs browser history from Chrome, Edge, Firefox, Brave</li>
+          <li>🖥️ Python agents auto-upload logs from clients</li>
+          <li>📊 Flask SB Admin dashboard with search, sort, filter</li>
+          <li>🕵️ Tracks FIM (File Integrity Monitoring) changes in .docx/.xlsx files</li>
+          <li>🔐 Prevents browser history deletion by restricting policy</li>
+          <li>🧠 Open source, lightweight, and extensible</li>
+        </ul>
+      </div>
     </section>
 
     <section id="skills">
@@ -184,23 +197,6 @@
       <ul class="certs-list">
         <li>CCNA — Cisco Certified Network Associate</li>
         <li>Fortinet NSE 1 (in progress)</li>
-      </ul>
-    </section>
-
-    <section id="browser-monitor">
-      <h2>Browser History Monitoring System</h2>
-      <p>
-        Built a centralized system to collect and monitor browser history logs (Chrome, Edge, Firefox, Brave) across 100+ client systems.
-        Implemented using <strong>Python agents</strong> and a <strong>Flask + SB Admin dashboard</strong>. Clients push logs to a shared folder,
-        while the server visualizes logs, FIM data, and trends in a modern UI.
-      </p>
-      <ul>
-        <li>📂 Logs browser history from Chrome, Edge, Firefox, Brave</li>
-        <li>🖥️ Python agents auto-upload logs from clients</li>
-        <li>📊 Flask SB Admin dashboard with search, sort, filter</li>
-        <li>🕵️ Tracks FIM (File Integrity Monitoring) changes in .docx/.xlsx files</li>
-        <li>🔐 Prevents browser history deletion by restricting policy</li>
-        <li>🧠 Open source, lightweight, and extensible</li>
       </ul>
     </section>
 
