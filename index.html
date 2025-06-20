@@ -12,141 +12,156 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
     rel="stylesheet" />
   <style>
+    /* Reset & base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Roboto', 'Roboto Mono', monospace, sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
 
     body {
-      background: #0d1117;
-      color: #c9d1d9;
+      background: #f8fafc;
+      color: #1e293b;
       line-height: 1.6;
       min-height: 100vh;
-      padding: 0 10px;
+      padding: 20px 15px;
     }
 
     header {
-      background: #161b22;
-      padding: 50px 20px 40px;
+      background: #2563eb;
+      color: white;
+      padding: 60px 20px 40px;
       text-align: center;
-      border-bottom: 2px solid #238636;
-      box-shadow: 0 0 10px #238636aa;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgb(37 99 235 / 0.5);
+      max-width: 720px;
+      margin: 0 auto 40px;
     }
 
     header img {
-      width: 150px;
-      height: 150px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 15px;
-      border: 3px solid #238636;
-      box-shadow: 0 0 15px #2ea043;
+      margin-bottom: 20px;
+      border: 4px solid white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease;
     }
 
     header img:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 30px #2ea043;
+      box-shadow: 0 6px 25px rgba(37, 99, 235, 0.7);
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
       margin-bottom: 10px;
-      color: #58a6ff;
-      text-shadow: 0 0 8px #58a6ff;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
     }
 
     header p {
       font-size: 1.3rem;
       font-weight: 500;
-      color: #8b949e;
       font-style: italic;
+      letter-spacing: 1.2px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     }
 
     .container {
-      max-width: 960px;
-      margin: 40px auto;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: 40px;
     }
 
     section {
-      background: #161b22;
-      border-radius: 12px;
+      background: white;
       padding: 30px 35px;
-      box-shadow: 0 0 15px #23863644;
-      border: 1px solid #23863688;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgb(0 0 0 / 0.08);
       transition: box-shadow 0.3s ease;
-      color: #c9d1d9;
+      color: #334155;
     }
 
     section:hover {
-      box-shadow: 0 0 30px #238636cc;
+      box-shadow: 0 10px 25px rgb(37 99 235 / 0.3);
     }
 
     h2 {
+      color: #2563eb;
       font-weight: 700;
-      color: #39d353;
-      margin-bottom: 20px;
-      font-family: 'Roboto Mono', monospace;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px #39d353;
+      font-size: 1.8rem;
+      margin-bottom: 22px;
+      border-bottom: 3px solid #2563eb;
+      padding-bottom: 6px;
+      letter-spacing: 1.3px;
     }
 
     .project {
-      background: #0d1117;
-      border: 1px solid #238636aa;
+      background: #f1f5f9;
       border-radius: 10px;
       padding: 20px 25px;
-      box-shadow: inset 0 0 10px #23863644;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      margin-bottom: 20px;
+      box-shadow: inset 0 0 8px rgb(37 99 235 / 0.1);
+      margin-bottom: 18px;
+      transition: background-color 0.3s ease;
     }
 
     .project:hover {
-      box-shadow: 0 0 20px #39d353, inset 0 0 20px #39d353;
-      transform: translateY(-7px);
+      background-color: #e0e7ff;
+      box-shadow: inset 0 0 15px rgb(37 99 235 / 0.3);
     }
 
     .project h3 {
-      margin-bottom: 10px;
-      color: #58a6ff;
-      font-family: 'Roboto Mono', monospace;
+      margin-bottom: 8px;
+      color: #1e40af;
       font-weight: 700;
-      text-shadow: 0 0 6px #58a6ff;
+      font-size: 1.2rem;
     }
 
     a {
-      color: #58a6ff;
+      color: #2563eb;
       font-weight: 600;
       text-decoration: none;
-      transition: color 0.2s ease;
+      transition: color 0.25s ease;
     }
 
     a:hover {
-      color: #39d353;
+      color: #1e40af;
       text-decoration: underline;
     }
 
     footer {
-      background: #161b22;
-      color: #8b949e;
+      max-width: 900px;
+      margin: 50px auto 0;
+      padding: 20px 10px;
       text-align: center;
-      padding: 25px 20px;
+      color: #64748b;
       font-size: 0.9rem;
-      border-top: 1px solid #23863688;
-      margin-top: 40px;
-      box-shadow: inset 0 0 10px #23863655;
+      user-select: none;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      header p {
+        font-size: 1.1rem;
+      }
+
+      .container {
+        padding: 0 10px;
+      }
     }
   </style>
 </head>
