@@ -17,13 +17,12 @@
     }
 
     body {
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
+      background: #f2f2f2;
+      color: #333;
     }
 
     header {
-      background: rgba(28, 49, 68, 0.85);
+      background: #1c3144;
       color: white;
       padding: 40px 20px;
       text-align: center;
@@ -35,7 +34,6 @@
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #fff;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
       margin-bottom: 15px;
     }
 
@@ -50,9 +48,9 @@
 
     nav {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      background: rgba(50, 74, 95, 0.9);
+      flex-wrap: wrap;
+      background: #34495e;
     }
 
     nav button {
@@ -66,15 +64,13 @@
 
     nav button.active,
     nav button:hover {
-      background: #4e6e8e;
+      background: #2c3e50;
     }
 
     .container {
       max-width: 960px;
       margin: 30px auto;
       padding: 0 20px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
     }
 
     section {
@@ -98,35 +94,35 @@
     }
 
     h2 {
-      color: #ffa726;
+      color: #1c3144;
       margin-bottom: 15px;
     }
 
-    .skills-list li,
-    .certs-list li {
-      margin-bottom: 8px;
-    }
-
-    .project {
+    .project, .experience {
       margin-bottom: 20px;
     }
 
-    .project h3 {
-      color: #ffd54f;
+    .project h3, .experience h3 {
+      color: #0066cc;
       margin-bottom: 5px;
     }
 
     a {
-      color: #ffc107;
+      color: #1c3144;
     }
 
     footer {
-      background: rgba(28, 49, 68, 0.85);
+      background: #1c3144;
       color: white;
       text-align: center;
-      padding: 15px;
+      padding: 20px;
       font-size: 0.9rem;
       margin-top: 50px;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
     }
   </style>
 </head>
@@ -142,88 +138,78 @@
     <button class="tab-btn active" data-tab="about">About</button>
     <button class="tab-btn" data-tab="resume">Resume</button>
     <button class="tab-btn" data-tab="projects">Projects</button>
-    <button class="tab-btn" data-tab="skills">Skills</button>
-    <button class="tab-btn" data-tab="certs">Certifications</button>
     <button class="tab-btn" data-tab="contact">Contact</button>
   </nav>
 
   <div class="container">
     <section id="about" class="active">
       <h2>About Me</h2>
-      <p>Results-oriented Network Administrator with 9+ years of experience designing and managing secure, scalable infrastructures across multiple branches. Expert in switches (Cisco, Aruba, HP, Ruijie), Fortinet firewalls (200E, 60F, 60E), Aruba Central wireless, VPN, and PRTG monitoring. CCNA certified. Passionate about minimizing downtime and optimizing security.</p>
+      <p>Results-oriented Network Administrator with over 9 years of hands-on experience in designing, implementing, and maintaining secure and high-performance network infrastructures across multi-branch organizations. Specialized in configuring and managing a wide range of networking equipment, including switches (Cisco, Aruba, HP, Ruijie), firewalls (Fortinet 200E, 60F, 60E), and wireless platforms (Aruba Central, Ruijie APs). Skilled in VPN setup, network security, disaster recovery, and system monitoring using tools like PRTG. Adept at reducing downtime, enhancing security protocols, and delivering reliable IT support. Certified in CCNA, with a strong commitment to leveraging technology to ensure operational continuity and scalability.</p>
     </section>
 
     <section id="resume">
       <h2>Resume</h2>
       <p><a href="Nidheeshlal_Resume.pdf" target="_blank">Download My Resume (PDF)</a></p>
+      <h3>Experience</h3>
+      <div class="experience">
+        <h3>Network Administrator - Fresh Fruits Company – Dubai, UAE</h3>
+        <ul>
+          <li>Install, configure, and maintain network hardware and software.</li>
+          <li>Manage VPNs, firewalls, and security protocols.</li>
+          <li>Monitor network performance and system availability.</li>
+        </ul>
+      </div>
+      <div class="experience">
+        <h3>IT Support Engineer - Al Qasimi Group L.L.C – Sharjah, UAE</h3>
+        <ul>
+          <li>Reduced downtime by 20% with proactive maintenance.</li>
+          <li>Improved customer satisfaction by 15%.</li>
+        </ul>
+      </div>
+      <div class="experience">
+        <h3>CEO - Techies, India</h3>
+        <ul>
+          <li>Managed CCTV and networking projects with 100% client satisfaction.</li>
+        </ul>
+      </div>
+      <div class="experience">
+        <h3>Network Support Engineer - Soffit Infrastructure Service Pvt Ltd, India</h3>
+      </div>
+      <div class="experience">
+        <h3>Desktop Support Engineer - Kotak Securities Ltd, India</h3>
+      </div>
+      <h3>Education</h3>
+      <p>B.Sc. in Hardware System and Networking Administration – MS University, India (2013)</p>
+      <h3>Certifications</h3>
+      <p>CCNA (Cisco Certified Network Associate)</p>
     </section>
 
     <section id="projects">
       <h2>Projects</h2>
       <div class="project">
-        <h3>Wazuh Deployment</h3>
-        <p>Real-time threat detection and compliance monitoring using Wazuh.</p>
+        <h3>PRTG Network Monitoring Tool</h3>
+        <p>Installation and Configuration for multi-branch real-time monitoring.</p>
       </div>
       <div class="project">
-        <h3>PRTG Monitoring</h3>
-        <p>Configured PRTG to track uptime, bandwidth, and usage across 6 locations.</p>
+        <h3>Zabbix Network Monitoring Tool</h3>
+        <p>Setup and configuration on Ubuntu for performance and alerting.</p>
       </div>
       <div class="project">
-        <h3>Zabbix Implementation</h3>
-        <p>Set up custom alerts, templates, and graphs for server & app monitoring.</p>
+        <h3>Wazuh Security Platform</h3>
+        <p>Deployment and Configuration for endpoint security and FIM.</p>
       </div>
       <div class="project">
-        <h3>Full Network Infrastructure Setup</h3>
-        <p>From cabling to VLAN design — deployed secure multi-branch infra.</p>
+        <h3>Network Infrastructure Setup</h3>
+        <p>End-to-end design and implementation for Talabat-acquired Cold Store.</p>
       </div>
-      <div class="project">
-        <h3>Centralized Browser History Monitoring System</h3>
-        <p>Built a centralized system to collect and monitor browser history logs (Chrome, Edge, Firefox, Brave) across 100+ client systems.
-          Implemented using <strong>Python agents</strong> and a <strong>Flask + SB Admin dashboard</strong>. Clients push logs to a shared folder,
-          while the server visualizes logs, FIM data, and trends in a modern UI.</p>
-        <ul>
-          <li>📂 Logs browser history from Chrome, Edge, Firefox, Brave</li>
-          <li>🖥️ Python agents auto-upload logs from clients</li>
-          <li>📊 Flask SB Admin dashboard with search, sort, filter</li>
-          <li>🔐 Prevents browser history deletion by restricting policy</li>
-          <li>🧠 Open source, lightweight, and extensible</li>
-        </ul>
-      </div>
-      <div class="project">
-        <h3>Advanced File Integrity Monitoring System</h3>
-        <p>Developed a custom Python-based script to monitor changes in Word, Excel, PDF, and text files. Integrated the system with a Flask dashboard for centralized visibility. Additionally, enhanced monitoring with Wazuh to track deep-level file edits and reverted changes.</p>
-        <ul>
-          <li>📝 Tracks file-level changes even in unsaved interim edits</li>
-          <li>📂 Supports .docx, .xlsx, .pdf, .txt</li>
-          <li>📡 Real-time dashboard updates with Flask</li>
-          <li>🔒 Enhanced detection using Wazuh FIM module</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Technical Skills</h2>
-      <ul class="skills-list">
-        <li><strong>Switching (Cisco/Aruba/HP):</strong> Expert</li>
-        <li><strong>Firewall Configuration (Fortinet):</strong> Advanced</li>
-        <li><strong>VPN / Remote Access:</strong> Advanced</li>
-        <li><strong>Network Monitoring (Zabbix, PRTG):</strong> Expert</li>
-        <li><strong>Documentation & SOPs:</strong> Proficient</li>
-      </ul>
-    </section>
-
-    <section id="certs">
-      <h2>Certifications</h2>
-      <ul class="certs-list">
-        <li>CCNA — Cisco Certified Network Associate</li>
-        <li>Fortinet NSE 1 (in progress)</li>
-      </ul>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:nidheeshlaal@gmail.com">nidheeshlaal@gmail.com</a></p>
       <p>Phone: <a href="tel:+971526300672">+971-526300672</a></p>
+      <p>Location: Dubai, United Arab Emirates</p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/nidheeshlal-e-d-419a6b26a" target="_blank">linkedin.com/in/nidheeshlal-e-d-419a6b26a</a></p>
     </section>
   </div>
 
