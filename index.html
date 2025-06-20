@@ -1,186 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nidheeshlal E D — Network Administrator Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-<style>
-  /* Reset */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-  }
-  body {
-    background: #f0f3f8;
-    color: #222;
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 40px 20px;
-  }
-  .container {
-    background: #fff;
-    max-width: 900px;
-    width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 40px;
-    padding: 40px;
-  }
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-right: 1px solid #e6e9f0;
-    padding-right: 30px;
-  }
-  .profile-pic {
-    width: 160px; height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-    margin-bottom: 25px;
-  }
-  .name {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: #1a1a1a;
-    text-align: center;
-  }
-  .title {
-    font-weight: 600;
-    color: #555;
-    margin-bottom: 25px;
-    text-align: center;
-  }
-  .contact-info {
-    width: 100%;
-  }
-  .contact-info h3 {
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: #1a1a1a;
-    border-bottom: 2px solid #4a90e2;
-    padding-bottom: 8px;
-  }
-  .contact-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-    color: #444;
-    font-size: 0.95rem;
-  }
-  .contact-item svg {
-    width: 18px;
-    height: 18px;
-    margin-right: 12px;
-    fill: #4a90e2;
-    flex-shrink: 0;
-  }
-  .contact-item a {
-    color: #4a90e2;
-    text-decoration: none;
-    word-break: break-all;
-    transition: color 0.3s ease;
-  }
-  .contact-item a:hover {
-    color: #2f5bb7;
-  }
-  .content {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-  section {
-    background: #fafbfe;
-    padding: 30px 35px;
-    border-radius: 14px;
-    box-shadow: 0 6px 12px rgba(74,144,226,0.1);
-    border: 1px solid #e1e5eb;
-  }
-  section h2 {
-    color: #1a1a1a;
-    font-weight: 700;
-    font-size: 1.6rem;
-    margin-bottom: 18px;
-    border-bottom: 2px solid #4a90e2;
-    padding-bottom: 8px;
-  }
-  section p {
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.6;
-  }
-  .project {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #d9dce3;
-  }
-  .project:last-child {
-    border-bottom: none;
-  }
-  .project h3 {
-    font-weight: 600;
-    font-size: 1.15rem;
-    color: #2a2a2a;
-    margin-bottom: 8px;
-  }
-  .resume-link {
-    display: inline-block;
-    padding: 12px 20px;
-    background: #4a90e2;
-    color: white;
-    font-weight: 600;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 10px rgba(74,144,226,0.4);
-  }
-  .resume-link:hover {
-    background-color: #2f5bb7;
-    box-shadow: 0 6px 15px rgba(47,91,183,0.6);
-  }
-  footer {
-    display: none; /* no footer here, keep it simple */
-  }
-  @media (max-width: 720px) {
-    .container {
-      grid-template-columns: 1fr;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nidheeshlal E D — Network Administrator Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset and base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: #0f1624;
+      color: #e0e6f1;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 30px 20px;
     }
-    .sidebar {
-      flex-direction: row;
-      border-right: none;
-      border-bottom: 1px solid #e6e9f0;
-      padding-bottom: 25px;
-      padding-right: 0;
-      justify-content: center;
-      gap: 30px;
+    a {
+      color: #4ea1d3;
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
+    a:hover {
+      color: #82c0ff;
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: #131c2f;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(78,161,211,0.25);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 50px;
+      padding: 50px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Left Panel */
+    .left-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-right: 1px solid #1f2a44;
+      padding-right: 40px;
+    }
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #4ea1d3;
+      box-shadow: 0 0 25px #4ea1d3cc;
+      margin-bottom: 30px;
+      transition: transform 0.4s ease;
+    }
+    .profile-img:hover {
+      transform: scale(1.05) rotate(3deg);
+      box-shadow: 0 0 35px #82c0ffcc;
+    }
+    .name {
+      font-weight: 700;
+      font-size: 2.3rem;
+      letter-spacing: 2px;
+      color: #82c0ff;
+      margin-bottom: 5px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .job-title {
+      font-weight: 500;
+      font-size: 1.2rem;
+      color: #7aa7cc;
+      margin-bottom: 30px;
+      font-style: italic;
+      letter-spacing: 1.2px;
+    }
+    /* Contact info */
     .contact-info {
-      display: none;
+      width: 100%;
     }
-    .content {
-      gap: 30px;
+    .contact-info h3 {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: #82c0ff;
+      letter-spacing: 1.1px;
+      border-bottom: 2px solid #4ea1d3;
+      padding-bottom: 10px;
     }
-  }
-</style>
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 18px;
+      font-size: 1rem;
+      color: #b0b9d6;
+      transition: color 0.3s ease;
+    }
+    .contact-item svg {
+      width: 22px;
+      height: 22px;
+      margin-right: 18px;
+      fill: #4ea1d3;
+      flex-shrink: 0;
+      transition: fill 0.3s ease;
+    }
+    .contact-item a {
+      color: #b0b9d6;
+    }
+    .contact-item a:hover {
+      color: #82c0ff;
+    }
+
+    /* Right Panel */
+    .right-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+    section {
+      background: #1f2a44;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px #4ea1d3aa;
+      border: 1px solid #4ea1d3;
+      transition: box-shadow 0.3s ease;
+    }
+    section:hover {
+      box-shadow: 0 0 40px #82c0ffdd;
+    }
+    section h2 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+      color: #82c0ff;
+      letter-spacing: 1.5px;
+      border-bottom: 3px solid #4ea1d3;
+      padding-bottom: 10px;
+    }
+    section p {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #d4d9e8;
+      line-height: 1.5;
+    }
+    .project {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #3a4b73;
+    }
+    .project:last-child {
+      border-bottom: none;
+    }
+    .project h3 {
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #a3c0ff;
+    }
+    .resume-link {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #4ea1d3;
+      border-radius: 10px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 8px 20px #4ea1d3bb;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .resume-link:hover {
+      background: #82c0ff;
+      box-shadow: 0 12px 30px #82c0ffcc;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .container {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+      }
+      .left-panel {
+        border-right: none;
+        border-bottom: 1px solid #1f2a44;
+        padding-bottom: 30px;
+        margin-bottom: 40px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <aside class="sidebar">
-    <img src="profile.jpg" alt="Nidheeshlal E D" class="profile-pic" />
-    <div>
+    <aside class="left-panel">
+      <img src="profile.jpg" alt="Nidheeshlal E D" class="profile-img" />
       <div class="name">Nidheeshlal E D</div>
-      <div class="title">Network Administrator</div>
+      <div class="job-title">Network Administrator</div>
 
       <div class="contact-info">
         <h3>Contact</h3>
@@ -193,18 +218,45 @@
           <a href="tel:+971526300672">+971-526300672</a>
         </div>
       </div>
-    </div>
-  </aside>
+    </aside>
 
-  <main class="content">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        Results-oriented Network Administrator with over 9 years of hands-on experience in designing, implementing, and maintaining secure and high-performance network infrastructures across multi-branch organizations. Specialized in configuring and managing a wide range of networking equipment, including switches (Cisco, Aruba, HP, Ruijie), firewalls (Fortinet 200E, 60F, 60E), and wireless platforms (Aruba Central, Ruijie APs). Skilled in VPN setup, network security, disaster recovery, and system monitoring using tools like PRTG. Adept at reducing downtime, enhancing security protocols, and delivering reliable IT support. Certified in CCNA, with a strong commitment to leveraging technology to ensure operational continuity and scalability.
-      </p>
-    </section>
+    <main class="right-panel">
 
-    <section id="resume">
-      <h2>Resume</h2>
-      <a href="Nidheeshlal_Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-link">Download My Resume (PDF)</a>
-    </
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          Results-oriented Network Administrator with over 9 years of hands-on experience in designing, implementing, and maintaining secure and high-performance network infrastructures across multi-branch organizations. Specialized in configuring and managing a wide range of networking equipment, including switches (Cisco, Aruba, HP, Ruijie), firewalls (Fortinet 200E, 60F, 60E), and wireless platforms (Aruba Central, Ruijie APs). Skilled in VPN setup, network security, disaster recovery, and system monitoring using tools like PRTG. Adept at reducing downtime, enhancing security protocols, and delivering reliable IT support. Certified in CCNA, with a strong commitment to leveraging technology to ensure operational continuity and scalability.
+        </p>
+      </section>
+
+      <section id="resume">
+        <h2>Resume</h2>
+        <a href="Nidheeshlal_Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-link">Download My Resume (PDF)</a>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+          <h3>Wazuh Deployment</h3>
+          <p>Implemented a full-featured security monitoring system using Wazuh to track real-time threats, file integrity, and compliance.</p>
+        </div>
+        <div class="project">
+          <h3>PRTG Network Monitoring</h3>
+          <p>Set up and configured PRTG to monitor device uptime, bandwidth, and traffic across multi-branch networks.</p>
+        </div>
+        <div class="project">
+          <h3>Zabbix Setup</h3>
+          <p>Deployed Zabbix to track server and application performance, customized alert triggers, and improved response time.</p>
+        </div>
+        <div class="project">
+          <h3>Complete Network Setup</h3>
+          <p>Designed and implemented a secure and scalable network infrastructure from the ground up for a multi-site organization.</p>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
