@@ -1,143 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nidheeshlal E D — Network Administrator Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: #f0f3f8;
-      color: #222;
-      display: flex;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 40px 20px;
-    }
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nidheeshlal E D — Network Administrator Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  body {
+    background: #f0f3f8;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  .container {
+    background: #fff;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    padding: 40px;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #e6e9f0;
+    padding-right: 30px;
+  }
+  .profile-pic {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    margin-bottom: 25px;
+  }
+  .name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+    text-align: center;
+  }
+  .title {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  .contact-info {
+    width: 100%;
+  }
+  .contact-info h3 {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 8px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #444;
+    font-size: 0.95rem;
+  }
+  .contact-item svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    fill: #4a90e2;
+    flex-shrink: 0;
+  }
+  .contact-item a {
+    color: #4a90e2;
+    text-decoration: none;
+    word-break: break-all;
+    transition: color 0.3s ease;
+  }
+  .contact-item a:hover {
+    color: #2f5bb7;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  section {
+    background: #fafbfe;
+    padding: 30px 35px;
+    border-radius: 14px;
+    box-shadow: 0 6px 12px rgba(74,144,226,0.1);
+    border: 1px solid #e1e5eb;
+  }
+  section h2 {
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 8px;
+  }
+  section p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+  }
+  .project {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d9dce3;
+  }
+  .project:last-child {
+    border-bottom: none;
+  }
+  .project h3 {
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #2a2a2a;
+    margin-bottom: 8px;
+  }
+  .resume-link {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #4a90e2;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(74,144,226,0.4);
+  }
+  .resume-link:hover {
+    background-color: #2f5bb7;
+    box-shadow: 0 6px 15px rgba(47,91,183,0.6);
+  }
+  footer {
+    display: none; /* no footer here, keep it simple */
+  }
+  @media (max-width: 720px) {
     .container {
-      background: #fff;
-      max-width: 900px;
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 40px;
-      padding: 40px;
+      grid-template-columns: 1fr;
+      padding: 30px 20px;
     }
-
-    /* Left sidebar */
     .sidebar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-right: 1px solid #e6e9f0;
-      padding-right: 30px;
+      flex-direction: row;
+      border-right: none;
+      border-bottom: 1px solid #e6e9f0;
+      padding-bottom: 25px;
+      padding-right: 0;
+      justify-content: center;
+      gap: 30px;
     }
-
-    .profile-pic {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-      margin-bottom: 25px;
-    }
-
-    .name {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 5px;
-      color: #1a1a1a;
-      text-align: center;
-    }
-
-    .title {
-      font-weight: 600;
-      color: #555;
-      margin-bottom: 25px;
-      text-align: center;
-    }
-
     .contact-info {
-      width: 100%;
+      display: none;
     }
-
-    .contact-info h3 {
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      color: #1a1a1a;
-      border-bottom: 2px solid #4a90e2;
-      padding-bottom: 8px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 12px;
-      color: #444;
-      font-size: 0.95rem;
-    }
-
-    .contact-item svg {
-      width: 18px;
-      height: 18px;
-      margin-right: 12px;
-      fill: #4a90e2;
-      flex-shrink: 0;
-    }
-
-    .contact-item a {
-      color: #4a90e2;
-      text-decoration: none;
-      word-break: break-all;
-      transition: color 0.3s ease;
-    }
-
-    .contact-item a:hover {
-      color: #2f5bb7;
-    }
-
-    /* Right content area */
     .content {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
+      gap: 30px;
     }
+  }
+</style>
+</head>
+<body>
 
-    section {
-      /* subtle card style */
-      background: #fafbfe;
-      padding: 30px 35px;
-      border-radius: 14px;
-      box-shadow: 0 6px 12px rgba(74,144,226,0.1);
-      border: 1px solid #e1e5eb;
-    }
+<div class="container">
 
-    section h2 {
-      color: #1a1a1a;
-      font-weight: 700;
-      font-size: 1.6rem;
-      margin-bottom: 18px;
-      border-bottom: 2px solid #4a90e2;
-      padding-bottom: 8px;
-    }
+  <aside class="sidebar">
+    <img src="profile.jpg" alt="Nidheeshlal E D" class="profile-pic" />
+    <div>
+      <div class="name">Nidheeshlal E D</div>
+      <div class="title">Network Administrator</div>
 
-    section p {
-      font-size: 1rem;
-      color: #444;
-      line-height: 1.6;
-    }
+      <div class="contact-info">
+        <h3>Contact</h3>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 8V7l-3 2-2-2-4 5-5-4-4 4v4l4-2 3 3 4-6 5 4z"/></svg>
+          <a href="mailto:nidheeshlaal@gmail.com">nidheeshlaal@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.534 15.534 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.05 11.05 0 003.46.55 1 1 0 011 1V20a1 1 0 01-1 1 17 17 0 01-15-15 1 1 0 011-1h3.5a1 1 0 011 1 11.05 11.05 0 00.55 3.46 1 1 0 01-.21 1.11l-2.2 2.2z"/></svg>
+          <a href="tel:+971526300672">+971-526300672</a>
+        </div>
+      </div>
+    </div>
+  </aside>
 
-    /* P*
+  <main class="content">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Results-oriented Network Administrator with over 9 years of hands-on experience in designing, implementing, and maintaining secure and high-performance network infrastructures across multi-branch organizations. Specialized in configuring and managing a wide range of networking equipment, including switches (Cisco, Aruba, HP, Ruijie), firewalls (Fortinet 200E, 60F, 60E), and wireless platforms (Aruba Central, Ruijie APs). Skilled in VPN setup, network security, disaster recovery, and system monitoring using tools like PRTG. Adept at reducing downtime, enhancing security protocols, and delivering reliable IT support. Certified in CCNA, with a strong commitment to leveraging technology to ensure operational continuity and scalability.
+      </p>
+    </section>
+
+    <section id="resume">
+      <h2>Resume</h2>
+      <a href="Nidheeshlal_Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-link">Download My Resume (PDF)</a>
+    </
