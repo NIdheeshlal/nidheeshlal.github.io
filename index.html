@@ -9,6 +9,7 @@
   <meta name="author" content="Nidheeshlal E D" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    /* Your existing styles, no changes needed except adding styles for the new tab videos */
     * {
       margin: 0;
       padding: 0;
@@ -75,8 +76,7 @@
       background: #4e6e8e;
     }
 
-    .container,
-    main {
+    .container {
       max-width: 960px;
       margin: 30px auto;
       padding: 0 20px;
@@ -84,8 +84,7 @@
       border-radius: 10px;
       min-height: 400px;
       position: relative;
-      padding-bottom: 50px;
-      color: #fff;
+      padding-bottom: 50px; /* For footer space */
     }
 
     section {
@@ -165,73 +164,46 @@
       padding-left: 20px;
     }
 
-    /* About tab video previews */
-    #about .video-preview-container {
-      display: flex;
-      gap: 12px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
+    /* Video grid for project videos */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
     }
 
-    #about .video-preview-container video {
-      width: 160px;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 6px;
+    .video-box {
+      background: rgba(255 255 255 / 0.1);
+      border-radius: 10px;
+      overflow: hidden;
       cursor: pointer;
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       transition: transform 0.3s ease;
+      position: relative;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
     }
 
-    #about .video-preview-container video:hover {
+    .video-box:hover {
       transform: scale(1.05);
     }
 
-    /* Project Videos tab styling */
-    #project-videos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      padding-top: 10px;
-    }
-
-    #project-videos .video-thumb {
-      position: relative;
-      width: 280px;
-      height: 160px;
-      cursor: pointer;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
-      background: black;
-      transition: transform 0.3s ease;
-    }
-
-    #project-videos .video-thumb video {
+    .video-box video {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      border-radius: 10px;
+      pointer-events: none; /* disable interaction until clicked */
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
     }
 
-    #project-videos .video-thumb:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ffa726;
+    .video-box.playing video {
+      pointer-events: auto;
+      opacity: 1;
     }
 
-    #project-videos .play-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 40px;
-      color: #ffa726;
-      pointer-events: none;
-      user-select: none;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    }
   </style>
 </head>
 
@@ -254,33 +226,43 @@
     <button class="tab-btn" data-tab="contact">Contact</button>
   </nav>
 
-  <main class="container">
-    <!-- About Section with 4 video previews -->
+  <div class="container">
+    <!-- About Tab Content -->
     <section id="about" class="active">
       <h2>About Me</h2>
-      <p>
-        Results-oriented Network Administrator with 9+ years of experience designing and managing secure, scalable infrastructures across multiple branches. Expert in switches
-        (Cisco, Aruba, HP, Ruijie), Fortinet firewalls (200E, 60F, 60E), Aruba Central wireless, VPN, and PRTG monitoring. CCNA certified. Passionate about minimizing downtime and optimizing
-        security.
-      </p>
-      <div class="video-preview-container">
-        <video src="Centralized User Browser History Logs.mp4" muted preload="metadata" loop></video>
-        <video src="File Integrity Management.mp4" muted preload="metadata" loop></video>
-        <video src="PDF to Excel Conversion Tool.mp4" muted preload="metadata" loop></video>
-        <video src="wazuh.mp4" muted preload="metadata" loop></video>
+      <p>Results-oriented Network Administrator with 9+ years of experience designing and managing secure, scalable infrastructures across multiple branches. Expert in switches (Cisco, Aruba, HP, Ruijie), Fortinet firewalls (200E, 60F, 60E), Aruba Central wireless, VPN, and PRTG monitoring. CCNA certified. Passionate about minimizing downtime and optimizing security.</p>
+
+      <!-- Videos on About Tab -->
+      <h3>Project Videos (Preview)</h3>
+      <div class="video-grid">
+        <div class="video-box" tabindex="0">
+          <video src="Centralized_User_Browser_History_Logs.mp4" muted preload="metadata" poster="" ></video>
+          <p style="padding: 8px; text-align: center;">Centralized User Browser History Logs</p>
+        </div>
+        <div class="video-box" tabindex="0">
+          <video src="File_Integrity_Management.mp4" muted preload="metadata" poster=""></video>
+          <p style="padding: 8px; text-align: center;">File Integrity Management</p>
+        </div>
+        <div class="video-box" tabindex="0">
+          <video src="PDF_to_Excel_Conversion_Tool.mp4" muted preload="metadata" poster=""></video>
+          <p style="padding: 8px; text-align: center;">PDF to Excel Conversion Tool</p>
+        </div>
+        <div class="video-box" tabindex="0">
+          <video src="wazuh.mp4" muted preload="metadata" poster=""></video>
+          <p style="padding: 8px; text-align: center;">Wazuh</p>
+        </div>
       </div>
     </section>
 
-    <!-- Resume Section -->
+    <!-- Resume Tab -->
     <section id="resume">
       <h2>Resume</h2>
       <p><a href="Nidheeshlal_Resume.pdf" target="_blank">Download My Resume (PDF)</a></p>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience Tab -->
     <section id="experience">
       <h2>Experience</h2>
-
       <div class="job">
         <h3><span class="designation">NETWORK ADMINISTRATOR</span></h3>
         <h4><span class="company">FRESH FRUITS COMPANY – DUBAI, UAE</span> - 05-2023 / Present</h4>
@@ -345,7 +327,7 @@
       </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Tab -->
     <section id="skills">
       <h2>Technical Skills</h2>
       <ul class="skills-list">
@@ -367,7 +349,7 @@
       </ul>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Tab -->
     <section id="projects">
       <h2>Projects</h2>
       <div class="project">
@@ -409,79 +391,115 @@
       </div>
     </section>
 
-    <!-- Project Videos Section -->
+    <!-- Project Videos Tab -->
     <section id="project-videos">
       <h2>Project Videos</h2>
-      <div class="video-thumb" data-video-src="Centralized User Browser History Logs.mp4" title="Centralized User Browser History Logs">
-        <video src="Centralized User Browser History Logs.mp4" muted preload="metadata" loop></video>
-        <div class="play-icon">▶</div>
-      </div>
-      <div class="video-thumb" data-video-src="File Integrity Management.mp4" title="File Integrity Management">
-        <video src="File Integrity Management.mp4" muted preload="metadata" loop></video>
-        <div class="play-icon">▶</div>
-      </div>
-      <div class="video-thumb" data-video-src="PDF to Excel Conversion Tool.mp4" title="PDF to Excel Conversion Tool">
-        <video src="PDF to Excel Conversion Tool.mp4" muted preload="metadata" loop></video>
-        <div class="play-icon">▶</div>
-      </div>
-      <div class="video-thumb" data-video-src="wazuh.mp4" title="Wazuh">
-        <video src="wazuh.mp4" muted preload="metadata" loop></video>
-        <div class="play-icon">▶</div>
+      <div class="video-grid">
+        <div class="video-box" tabindex="0">
+          <video src="Centralized_User_Browser_History_Logs.mp4" muted preload="metadata" poster=""></video>
+          <p style="padding: 8px; text-align: center;">Centralized User Browser History Logs</p>
+        </div>
+        <div class="video-box" tabindex="0">
+          <video src="File_Integrity_Management.mp4" muted preload="metadata" poster=""></video>
+          <p style="padding: 8px; text-align: center;">File Integrity Management</p>
+        </div>
+        <div class="video-box" tabindex="0">
+          <video src="PDF_to_Excel_Conversion_Tool.mp4" muted preload="metadata" poster=""></video>
+          <p style="padding: 8px; text-align: center;">PDF to Excel Conversion Tool</p>
+        </div>
+        <div class="video-box" tabindex="0">
+          <video src="wazuh.mp4" muted preload="metadata" poster=""></video>
+          <p style="padding: 8px; text-align: center;">Wazuh</p>
+        </div>
       </div>
     </section>
 
-    <!-- Certifications Section -->
+    <!-- Certifications Tab -->
     <section id="certs">
       <h2>Certifications</h2>
       <ul class="certs-list">
         <li>CCNA — Cisco Certified Network Associate</li>
-        <li>Fortinet NSE 1 (Network Security Expert)</li>
-        <li>Microsoft 365 Certified: Modern Desktop Administrator Associate</li>
-        <li>PRTG Certified Professional</li>
+        <li>Fortinet NSE 1 (in progress)</li>
       </ul>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education Tab -->
     <section id="education">
       <h2>Education</h2>
-      <p>Bachelor of Science in Computer Science — XYZ University, 2015</p>
-      <p>Diploma in Networking — ABC Institute, 2013</p>
+      <p>B.Sc. Hardware System and Networking Administration – MS University, India | 2013</p>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Tab -->
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:nidheeshlal@freshfruitscompany.com">nidheeshlal@freshfruitscompany.com</a></p>
-      <p>Phone: +971 52 63 00672</p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/nidheeshlal" target="_blank">linkedin.com/in/nidheeshlal</a></p>
+      <p>Email: <a href="mailto:nidheeshlaal@gmail.com">nidheeshlaal@gmail.com</a></p>
+      <p>Phone: <a href="tel:+971526300672">+971-526300672</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/nidheeshlal-e-d-419a6b26a" target="_blank">linkedin.com/in/nidheeshlal</a></p>
     </section>
-  </main>
+  </div>
 
   <footer>
-    &copy; 2025 Nidheeshlal E D. All rights reserved.
+    &copy; 2025 Nidheeshlal E D | All rights reserved
   </footer>
 
+  <!-- Modal for full profile pic -->
+  <div id="modal" style="
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;">
+    <img id="fullPic" src="profile.jpg" alt="Full Profile Picture" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 0 15px #fff;" />
+  </div>
+
   <script>
-    // Tab navigation logic
     const tabs = document.querySelectorAll('.tab-btn');
-    const sections = document.querySelectorAll('main section');
+    const sections = document.querySelectorAll('section');
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        // Remove active from all tabs & sections
         tabs.forEach(t => t.classList.remove('active'));
         sections.forEach(s => s.classList.remove('active'));
-
-        // Activate clicked tab and corresponding section
         tab.classList.add('active');
-        const target = tab.getAttribute('data-tab');
-        document.getElementById(target).classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
       });
     });
 
-    // Optional: Video click to toggle mute/unmute or play/pause if you want
-    // You can add if needed.
+    // Video click to play/pause
+    document.querySelectorAll('.video-box').forEach(box => {
+      const video = box.querySelector('video');
+      box.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          box.classList.add('playing');
+        } else {
+          video.pause();
+          box.classList.remove('playing');
+        }
+      });
+      // Optional: stop video when tab changes
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          video.pause();
+          box.classList.remove('playing');
+        });
+      });
+    });
 
+    // Profile pic modal logic
+    const profilePic = document.getElementById('profilePic');
+    const modal = document.getElementById('modal');
+
+    profilePic.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    modal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
   </script>
 </body>
 
