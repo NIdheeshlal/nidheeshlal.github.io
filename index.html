@@ -9,7 +9,6 @@
   <meta name="author" content="Nidheeshlal E D" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* Original styles remain untouched */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -64,20 +63,14 @@
 </head>
 
 <body>
-  <!-- Your entire existing HTML remains as is -->
-
-  <!-- Add this in the <nav> after Projects -->
-  <script>
-    const nav = document.querySelector("nav");
-    const btn = document.createElement("button");
-    btn.className = "tab-btn";
-    btn.dataset.tab = "projectvideos";
-    btn.textContent = "Project Videos";
-    nav.insertBefore(btn, nav.children[6]);
-  </script>
+  <!-- Add this tab to the nav -->
+  <nav>
+    <button class="tab-btn" data-tab="projects">Projects</button>
+    <button class="tab-btn" data-tab="projectvideos">Project Videos</button>
+  </nav>
 
   <!-- Add this section after existing sections -->
-  <section id="projectvideos">
+  <section id="projectvideos" class="tab-section">
     <h2>Project Videos</h2>
     <div class="video-grid">
       <div class="video-thumbnail" data-video="https://www.youtube.com/embed/BW1gKRsvS7Y?autoplay=1">
@@ -100,23 +93,44 @@
   </div>
 
   <script>
-    const modal = document.getElementById("videoModal");
-    const frame = document.getElementById("videoFrame");
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabs = document.querySelectorAll(".tab-btn");
+      const sections = document.querySelectorAll(".tab-section");
 
-    document.querySelectorAll(".video-thumbnail").forEach(thumb => {
-      thumb.addEventListener("click", () => {
-        frame.src = thumb.dataset.video;
-        modal.style.display = "flex";
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          tabs.forEach(t => t.classList.remove("active"));
+          sections.forEach(s => s.style.display = "none");
+
+          tab.classList.add("active");
+          const activeSection = document.getElementById(tab.dataset.tab);
+          if (activeSection) activeSection.style.display = "block";
+        });
+      });
+
+      // Show the first tab by default
+      if (tabs.length && sections.length) {
+        tabs[0].classList.add("active");
+        sections[0].style.display = "block";
+      }
+
+      // Video modal
+      const modal = document.getElementById("videoModal");
+      const frame = document.getElementById("videoFrame");
+
+      document.querySelectorAll(".video-thumbnail").forEach(thumb => {
+        thumb.addEventListener("click", () => {
+          frame.src = thumb.dataset.video;
+          modal.style.display = "flex";
+        });
+      });
+
+      modal.addEventListener("click", () => {
+        frame.src = "";
+        modal.style.display = "none";
       });
     });
-
-    modal.addEventListener("click", () => {
-      frame.src = "";
-      modal.style.display = "none";
-    });
   </script>
-
-  <!-- Keep your existing footer, modal, and tab switching script here -->
 </body>
 
 </html>
