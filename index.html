@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nidheeshlal E D | Network Administrator</title>
   <meta name="description" content="Portfolio of Nidheeshlal E D, Network Administrator with 9+ years of experience in secure network infrastructure and monitoring." />
   <meta name="author" content="Nidheeshlal E D" />
@@ -78,11 +78,12 @@
     .container {
       max-width: 960px;
       margin: 30px auto;
-      padding: 0 20px 50px 20px;
+      padding: 0 20px;
       background: rgba(0, 0, 0, 0.6);
       border-radius: 10px;
       min-height: 400px;
       position: relative;
+      padding-bottom: 50px;
     }
 
     section {
@@ -162,66 +163,62 @@
       padding-left: 20px;
     }
 
-    /* Video preview boxes styling */
-
-    .video-preview {
-      position: relative;
-      width: 320px;
-      height: 180px;
-      margin: 15px 10px 5px 0;
-      background: #111;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(255, 167, 38, 0.7);
-      cursor: pointer;
-      display: inline-block;
-      vertical-align: top;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .video-preview:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ffb74d;
-    }
-
-    .video-preview::before {
-      content: '';
+    /* Modal close button */
+    #modalCloseBtn {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 60px;
-      height: 60px;
-      background: rgba(255, 167, 38, 0.9);
-      clip-path: polygon(30% 20%, 30% 80%, 80% 50%);
-      transform: translate(-50%, -50%);
-      transition: background 0.3s ease;
-    }
-
-    .video-preview:hover::before {
-      background: #ff9800;
-    }
-
-    .video-label {
-      text-align: center;
-      margin-top: 5px;
-      font-weight: 700;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
       color: #ffa726;
-      font-size: 0.9rem;
-      max-width: 320px;
-      white-space: nowrap;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 10000;
+      transition: color 0.3s ease;
+    }
+
+    #modalCloseBtn:hover {
+      color: #ff6f00;
+    }
+
+    /* Video box style in projects & about */
+    .video-box {
+      max-width: 400px;
+      margin: 20px 0;
+      border: 3px solid #ffa726;
+      border-radius: 10px;
       overflow: hidden;
-      text-overflow: ellipsis;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ffa726;
+      transition: box-shadow 0.3s ease;
     }
 
-    /* For About videos container */
-    .about-video-previews {
+    .video-box:hover {
+      box-shadow: 0 0 20px #ff6f00;
+    }
+
+    .video-box video {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .video-title {
+      text-align: center;
+      margin-top: 6px;
+      font-weight: 700;
+      color: #ffd54f;
+      font-size: 1.1rem;
+      user-select: none;
+    }
+
+    .watch-demo-text {
       margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffa726;
+      user-select: none;
     }
-
-    .projects-video-list {
-      margin-top: 10px;
-    }
-
   </style>
 </head>
 
@@ -247,13 +244,28 @@
     <section id="about" class="active">
       <h2>About Me</h2>
       <p>Results-oriented Network Administrator with 9+ years of experience designing and managing secure, scalable infrastructures across multiple branches. Expert in switches (Cisco, Aruba, HP, Ruijie), Fortinet firewalls (200E, 60F, 60E), Aruba Central wireless, VPN, and PRTG monitoring. CCNA certified. Passionate about minimizing downtime and optimizing security.</p>
+      
+      <p class="watch-demo-text">Watch my project demos:</p>
 
-      <h3>Watch My Projects Demos</h3>
-      <div class="about-video-previews">
-        <div class="video-preview" data-video="Advanced_File_Integrity_Monitoring" title="Advanced File Integrity Monitoring"></div>
-        <div class="video-preview" data-video="Browser_History_Monitoring_Dashboard" title="Browser History Monitoring Dashboard"></div>
-        <div class="video-preview" data-video="Smart_Pdf_To_Excel_Extractor" title="Smart PDF To Excel Extractor"></div>
-        <div class="video-preview" data-video="Wazuh_Threat_Monitoring_Setup" title="Wazuh Threat Monitoring Setup"></div>
+      <!-- Video Boxes in About -->
+      <div class="video-box" data-video="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Advanced_File_Integrity_Monitoring.mp4">
+        <video muted playsinline preload="metadata" poster="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/posters/afi_poster.jpg"></video>
+        <div class="video-title">Advanced File Integrity Monitoring</div>
+      </div>
+
+      <div class="video-box" data-video="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Browser%20History%20Monitoring%20Dashboard.mp4">
+        <video muted playsinline preload="metadata" poster="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/posters/browser_history_poster.jpg"></video>
+        <div class="video-title">Browser History Monitoring Dashboard</div>
+      </div>
+
+      <div class="video-box" data-video="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Smart%20Pdf%20To%20Excel%20Extractor.mp4">
+        <video muted playsinline preload="metadata" poster="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/posters/pdf_to_excel_poster.jpg"></video>
+        <div class="video-title">Smart PDF To Excel Extractor</div>
+      </div>
+
+      <div class="video-box" data-video="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Wazuh_Threat_Monitoring_Setup.mp4">
+        <video muted playsinline preload="metadata" poster="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/posters/wazuh_setup_poster.jpg"></video>
+        <div class="video-title">Wazuh Threat Monitoring Setup</div>
       </div>
     </section>
 
@@ -352,18 +364,63 @@
 
     <section id="projects">
       <h2>Projects</h2>
-      <div class="projects-video-list">
-        <div class="video-preview" data-video="Advanced_File_Integrity_Monitoring" title="Advanced File Integrity Monitoring"></div>
-        <div class="video-label">Advanced File Integrity Monitoring</div>
+      <div class="project">
+        <h3>Wazuh Deployment</h3>
+        <p>Real-time threat detection and compliance monitoring using Wazuh.</p>
+      </div>
+      <div class="project">
+        <h3>PRTG Monitoring</h3>
+        <p>Configured PRTG to track uptime, bandwidth, and usage across 6 locations.</p>
+      </div>
+      <div class="project">
+        <h3>Zabbix Implementation</h3>
+        <p>Set up custom alerts, templates, and graphs for server & app monitoring.</p>
+      </div>
+      <div class="project">
+        <h3>Full Network Infrastructure Setup</h3>
+        <p>From cabling to VLAN design — deployed secure multi-branch infra.</p>
+      </div>
+      <div class="project">
+        <h3>Centralized Browser History Monitoring System</h3>
+        <p>Built a centralized system to collect and monitor browser history logs (Chrome, Edge, Firefox, Brave) across 100+ client systems.</p>
+        <ul>
+          <li>📂 Logs browser history from Chrome, Edge, Firefox, Brave</li>
+          <li>🖥️ Python agents auto-upload logs from clients</li>
+          <li>📊 Flask SB Admin dashboard with search, sort, filter</li>
+          <li>🔐 Prevents browser history deletion by restricting policy</li>
+          <li>🧠 Open source, lightweight, and extensible</li>
+        </ul>
+      </div>
+      <div class="project">
+        <h3>Advanced File Integrity Monitoring System</h3>
+        <p>Developed a custom Python-based script to monitor changes in Word, Excel, PDF, and text files. Integrated the system with a Flask dashboard for centralized visibility. Additionally, enhanced monitoring with Wazuh to track deep-level file edits and reverted changes.</p>
+        <ul>
+          <li>📝 Tracks file-level changes even in unsaved interim edits</li>
+          <li>📂 Supports .docx, .xlsx, .pdf, .txt</li>
+          <li>📡 Real-time dashboard updates with Flask</li>
+          <li>🔒 Enhanced detection using Wazuh FIM module</li>
+        </ul>
+      </div>
 
-        <div class="video-preview" data-video="Browser_History_Monitoring_Dashboard" title="Browser History Monitoring Dashboard"></div>
-        <div class="video-label">Browser History Monitoring Dashboard</div>
+      <!-- Video Boxes in Projects -->
+      <div class="video-box" data-video="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Advanced_File_Integrity_Monitoring.mp4">
+        <video muted playsinline preload="metadata" poster="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/posters/afi_poster.jpg"></video>
+        <div class="video-title">Advanced File Integrity Monitoring</div>
+      </div>
 
-        <div class="video-preview" data-video="Smart_Pdf_To_Excel_Extractor" title="Smart PDF To Excel Extractor"></div>
-        <div class="video-label">Smart PDF To Excel Extractor</div>
+      <div class="video-box" data-video="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Browser%20History%20Monitoring%20Dashboard.mp4">
+        <video muted playsinline preload="metadata" poster="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/posters/browser_history_poster.jpg"></video>
+        <div class="video-title">Browser History Monitoring Dashboard</div>
+      </div>
 
-        <div class="video-preview" data-video="Wazuh_Threat_Monitoring_Setup" title="Wazuh Threat Monitoring Setup"></div>
-        <div class="video-label">Wazuh Threat Monitoring Setup</div>
+      <div class="video-box" data-video="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Smart%20Pdf%20To%20Excel%20Extractor.mp4">
+        <video muted playsinline preload="metadata" poster="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/posters/pdf_to_excel_poster.jpg"></video>
+        <div class="video-title">Smart PDF To Excel Extractor</div>
+      </div>
+
+      <div class="video-box" data-video="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Wazuh_Threat_Monitoring_Setup.mp4">
+        <video muted playsinline preload="metadata" poster="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/posters/wazuh_setup_poster.jpg"></video>
+        <div class="video-title">Wazuh Threat Monitoring Setup</div>
       </div>
     </section>
 
@@ -392,7 +449,7 @@
     &copy; 2025 Nidheeshlal E D | All rights reserved
   </footer>
 
-  <!-- Modal for full profile pic -->
+  <!-- Modal for full video -->
   <div id="modal" style="
     display:none;
     position:fixed;
@@ -401,15 +458,13 @@
     background:rgba(0,0,0,0.8);
     justify-content:center;
     align-items:center;
-    z-index:9999;">
-    <video id="modalVideo" controls style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 0 15px #fff;">
-      <source src="" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    z-index:9999;
+    ">
+    <button id="modalCloseBtn" aria-label="Close video modal">&times;</button>
+    <video id="modalVideo" controls style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 0 15px #ffa726;"></video>
   </div>
 
   <script>
-    // Tabs switching
     const tabs = document.querySelectorAll('.tab-btn');
     const sections = document.querySelectorAll('section');
 
@@ -422,46 +477,28 @@
       });
     });
 
-    // Profile pic modal (just hides modal on click)
+    // Profile pic modal logic (if you want to keep it, otherwise remove this block)
     const profilePic = document.getElementById('profilePic');
     const modal = document.getElementById('modal');
     const modalVideo = document.getElementById('modalVideo');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
 
-    profilePic.addEventListener('click', () => {
-      // If you want profile pic modal, can add logic here (currently modal used for videos)
-      // For now, do nothing or alert
-      alert("Profile pic clicked!");
-    });
+    // Click video box to open modal & play video
+    document.querySelectorAll('.video-box').forEach(box => {
+      const vid = box.querySelector('video');
+      // Set poster src for inline preview videos from existing attribute
+      vid.src = box.dataset.video;
 
-    // Video preview click event to open modal with correct video
-    const videoPreviews = document.querySelectorAll('.video-preview');
-
-    videoPreviews.forEach(vp => {
-      vp.addEventListener('click', () => {
-        const videoName = vp.getAttribute('data-video');
-        // Map videoName to your GitHub raw URLs:
-        const videoURLs = {
-          "Advanced_File_Integrity_Monitoring": "https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Advanced_File_Integrity_Monitoring.mp4",
-          "Browser_History_Monitoring_Dashboard": "https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Browser%20History%20Monitoring%20Dashboard.mp4",
-          "Smart_Pdf_To_Excel_Extractor": "https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Smart%20Pdf%20To%20Excel%20Extractor.mp4",
-          "Wazuh_Threat_Monitoring_Setup": "https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Wazuh_Threat_Monitoring_Setup.mp4"
-        };
-
-        const url = videoURLs[videoName];
-
-        if (url) {
-          modalVideo.src = url;
-          modal.style.display = 'flex';
-          modalVideo.play();
-        } else {
-          alert('Video URL not found!');
-        }
+      box.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalVideo.src = box.dataset.video;
+        modalVideo.play();
       });
     });
 
-    // Click outside video to close modal and stop video
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal || e.target === modalVideo) {
+    // Close modal on background click
+    modal.addEventListener('click', e => {
+      if (e.target === modal || e.target === modalCloseBtn) {
         modal.style.display = 'none';
         modalVideo.pause();
         modalVideo.currentTime = 0;
@@ -469,6 +506,19 @@
       }
     });
 
+    // Close modal on close button click
+    modalCloseBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+      modalVideo.src = "";
+    });
+
+    // Profile pic modal (optional: remove if you don’t want profile pic modal)
+    profilePic.addEventListener('click', () => {
+      // For your profile pic modal you can add a separate modal if you want.
+      // For now, do nothing or add your own logic here.
+    });
   </script>
 </body>
 
