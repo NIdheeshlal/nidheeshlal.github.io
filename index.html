@@ -214,7 +214,7 @@
       width: 100%;
       display: block;
       border-radius: 10px;
-      pointer-events: none; /* Disable direct click on video thumbnails */
+      pointer-events: none;
     }
 
     .video-title {
@@ -329,7 +329,6 @@
 
       <p class="watch-demo-text">Watch my project demos:</p>
 
-      <!-- Video Boxes in About -->
       <div class="video-container">
         <div class="video-box" data-video="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/Advanced_File_Integrity_Monitoring.mp4" tabindex="0" role="button" aria-label="Play Advanced File Integrity Monitoring Video">
           <video muted preload="metadata" poster="https://raw.githubusercontent.com/NIdheeshlal/nidheeshlal.github.io/main/posters/afi_poster.jpg"></video>
@@ -357,7 +356,52 @@
       </div>
     </section>
 
-    <!-- Other sections truncated for brevity -->
+    <section id="resume">
+      <h2>Resume</h2>
+      <p>Experienced Network Administrator with a proven record of designing and maintaining robust network systems.</p>
+      <ul>
+        <li>Designed and implemented secure multi-branch network infrastructure.</li>
+        <li>Expertise in Cisco, Aruba, HP, and Ruijie switches.</li>
+        <li>Fortinet firewall management (models 200E, 60F, 60E).</li>
+        <li>VPN configuration and monitoring with PRTG.</li>
+        <li>CCNA certified professional.</li>
+      </ul>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div>
+        <p class="designation">Network Administrator <span class="company">@ Fresh Fruits Company</span></p>
+        <p>Jan 2018 - Present</p>
+        <ul>
+          <li>Managing network infrastructure across 6 branches.</li>
+          <li>Monitoring uptime, bandwidth, and security compliance.</li>
+          <li>Implemented centralized browser history monitoring system.</li>
+          <li>Maintaining Fortinet firewalls and VPNs.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="designation">Junior Network Engineer <span class="company">@ XYZ Technologies</span></p>
+        <p>Jun 2015 - Dec 2017</p>
+        <ul>
+          <li>Assisted in switch configuration and VLAN setup.</li>
+          <li>Performed routine network maintenance and troubleshooting.</li>
+          <li>Supported firewall rule updates and patches.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Switches: Cisco, Aruba, HP, Ruijie</li>
+        <li>Firewall: Fortinet 200E, 60F, 60E</li>
+        <li>Wireless Management: Aruba Central</li>
+        <li>Monitoring Tools: PRTG, Zabbix, Wazuh</li>
+        <li>VPN & Security Management</li>
+        <li>Python & Bash scripting</li>
+      </ul>
+    </section>
 
     <section id="projects">
       <h2>Projects</h2>
@@ -421,31 +465,55 @@
       </div>
     </section>
 
-    <!-- Certs, Education, Contact sections would be here (same as before) -->
+    <section id="certs">
+      <h2>Certifications</h2>
+      <ul class="certs-list">
+        <li>CCNA Routing and Switching</li>
+        <li>Fortinet NSE 4</li>
+        <li>PRTG Network Monitoring Certified</li>
+        <li>Python for Network Engineers</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <p><strong>Bachelor of Technology (B.Tech), Computer Science</strong> — Kerala University, 2012 - 2016</p>
+      <p><strong>Diploma in Networking</strong> — XYZ Institute, 2011 - 2012</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:nidheeshlal@example.com">nidheeshlal@example.com</a></p>
+      <p>Phone: +971 50 123 4567</p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/nidheeshlal" target="_blank" rel="noopener noreferrer">linkedin.com/in/nidheeshlal</a></p>
+      <p>GitHub: <a href="https://github.com/NIdheeshlal" target="_blank" rel="noopener noreferrer">github.com/NIdheeshlal</a></p>
+    </section>
   </div>
 
-  <footer>
-    &copy; 2025 Nidheeshlal E D - Network Administrator
-  </footer>
-
   <!-- Modal for video playback -->
-  <div id="videoModal" role="dialog" aria-modal="true" aria-labelledby="modalVideoTitle" tabindex="-1">
+  <div id="videoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div id="modalVideoContainer">
       <button id="modalCloseBtn" aria-label="Close video modal">&times;</button>
       <video id="modalVideo" controls></video>
     </div>
   </div>
 
+  <footer>
+    &copy; 2025 Nidheeshlal E D — All rights reserved.
+  </footer>
+
   <script>
-    // Tab navigation functionality
+    // Tabs switcher
     const tabs = document.querySelectorAll('.tab-btn');
     const sections = document.querySelectorAll('section');
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
+        // Remove active class from all tabs & sections
         tabs.forEach(t => t.classList.remove('active'));
         sections.forEach(s => s.classList.remove('active'));
 
+        // Activate current tab & section
         tab.classList.add('active');
         const tabName = tab.getAttribute('data-tab');
         document.getElementById(tabName).classList.add('active');
