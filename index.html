@@ -9,126 +9,382 @@
   <meta name="author" content="Nidheeshlal E D" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
     }
 
-    .video-thumbnail {
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-      border-radius: 10px;
-      border: 2px solid #ffa726;
-    }
-
-    .video-thumbnail img {
-      width: 100%;
-      display: block;
-    }
-
-    .video-thumbnail::after {
-      content: '\25BA';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 3rem;
+    body {
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
-      pointer-events: none;
-      opacity: 0.8;
     }
 
-    .video-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.85);
+    header {
+      background: rgba(28, 49, 68, 0.85);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 5px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
-      z-index: 10000;
+      background: rgba(50, 74, 95, 0.9);
     }
 
-    .video-modal iframe {
-      width: 90%;
-      height: 90%;
+    nav button {
+      background: none;
       border: none;
-      border-radius: 10px;
+      color: white;
+      padding: 15px 25px;
+      cursor: pointer;
+      font-size: 1rem;
     }
+
+    nav button.active,
+    nav button:hover {
+      background: #4e6e8e;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 0 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      min-height: 400px;
+      position: relative;
+      padding-bottom: 50px; /* For footer space */
+    }
+
+    section {
+      display: none;
+      padding: 30px 0;
+    }
+
+    section.active {
+      display: block;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    h2 {
+      color: #ffa726;
+      margin-bottom: 15px;
+    }
+
+    .skills-list li,
+    .certs-list li {
+      margin-bottom: 8px;
+    }
+
+    .project {
+      margin-bottom: 20px;
+    }
+
+    .project h3 {
+      color: #ffd54f;
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: #ffc107;
+    }
+
+    footer {
+      background: rgba(28, 49, 68, 0.85);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Experience tab styling */
+    #experience .designation {
+      color: #ffa726;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    #experience .company {
+      color: #ffd54f;
+      font-weight: 600;
+      margin-left: 5px;
+      font-style: italic;
+    }
+
+    #experience ul {
+      margin-top: 10px;
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
   </style>
 </head>
 
 <body>
-  <!-- Add this tab to the nav -->
+  <header>
+    <img id="profilePic" src="profile.jpg" alt="Nidheeshlal E D" />
+    <h1>Nidheeshlal E D</h1>
+    <p>Network Administrator</p>
+  </header>
+
   <nav>
+    <button class="tab-btn active" data-tab="about">About</button>
+    <button class="tab-btn" data-tab="resume">Resume</button>
+    <button class="tab-btn" data-tab="experience">Experience</button>
+    <button class="tab-btn" data-tab="skills">Skills</button>
     <button class="tab-btn" data-tab="projects">Projects</button>
-    <button class="tab-btn" data-tab="projectvideos">Project Videos</button>
+    <button class="tab-btn" data-tab="certs">Certifications</button>
+    <button class="tab-btn" data-tab="education">Education</button>
+    <button class="tab-btn" data-tab="contact">Contact</button>
   </nav>
 
-  <!-- Add this section after existing sections -->
-  <section id="projectvideos" class="tab-section">
-    <h2>Project Videos</h2>
-    <div class="video-grid">
-      <div class="video-thumbnail" data-video="https://www.youtube.com/embed/BW1gKRsvS7Y?autoplay=1">
-        <img src="https://img.youtube.com/vi/BW1gKRsvS7Y/0.jpg" alt="Video 1">
-      </div>
-      <div class="video-thumbnail" data-video="https://www.youtube.com/embed/f7VJ38zOd6w?autoplay=1">
-        <img src="https://img.youtube.com/vi/f7VJ38zOd6w/0.jpg" alt="Video 2">
-      </div>
-      <div class="video-thumbnail" data-video="https://www.youtube.com/embed/ef-0zY9Dr8s?autoplay=1">
-        <img src="https://img.youtube.com/vi/ef-0zY9Dr8s/0.jpg" alt="Video 3">
-      </div>
-      <div class="video-thumbnail" data-video="https://www.youtube.com/embed/XqNBh7kzaz8?autoplay=1">
-        <img src="https://img.youtube.com/vi/XqNBh7kzaz8/0.jpg" alt="Video 4">
-      </div>
-    </div>
-  </section>
+  <div class="container">
+    <section id="about" class="active">
+      <h2>About Me</h2>
+      <p>Results-oriented Network Administrator with 9+ years of experience designing and managing secure, scalable infrastructures across multiple branches. Expert in switches (Cisco, Aruba, HP, Ruijie), Fortinet firewalls (200E, 60F, 60E), Aruba Central wireless, VPN, and PRTG monitoring. CCNA certified. Passionate about minimizing downtime and optimizing security.</p>
+    </section>
 
-  <div class="video-modal" id="videoModal">
-    <iframe id="videoFrame" allowfullscreen></iframe>
+    <section id="resume">
+      <h2>Resume</h2>
+      <p><a href="Nidheeshlal_Resume.pdf" target="_blank">Download My Resume (PDF)</a></p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="job">
+        <h3><span class="designation">NETWORK ADMINISTRATOR</span></h3>
+        <h4><span class="company">FRESH FRUITS COMPANY – DUBAI, UAE</span> - 05-2023 / Present</h4>
+        <ul>
+          <li>Install, configure, and maintain network hardware and software, including routers, switches, firewalls, and servers.</li>
+          <li>Monitor network performance and ensure system availability and reliability.</li>
+          <li>Troubleshoot and resolve network issues in a timely manner.</li>
+          <li>Manage and maintain VPNs, firewalls, and network security protocols.</li>
+          <li>Ensure network security by enforcing policies, updating security software, and monitoring for vulnerabilities.</li>
+          <li>Perform regular system backups and recovery procedures.</li>
+          <li>Maintain documentation of network configurations, procedures, and changes.</li>
+          <li>Assist with basic management of the Avaya IP Office phone system, including updating extensions and IVR greetings.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3><span class="designation">IT SUPPORT ENGINEER</span></h3>
+        <h4><span class="company">AL QASIMI GROUP L.L.C | SHARJAH, UAE</span> - 03-2021 – 03-2023</h4>
+        <ul>
+          <li>Reduced system downtime by 20% with proactive hardware/software maintenance.</li>
+          <li>Improved customer satisfaction by 15% with efficient support.</li>
+          <li>Troubleshot network and system issues to ensure smooth operations.</li>
+          <li>Assisted in configuring and maintaining network infrastructure including switches, routers, and firewalls.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3><span class="designation">CHIEF EXECUTIVE OFFICER</span></h3>
+        <h4><span class="company">TECHIES, INDIA</span> - 2018 - 2020</h4>
+        <ul>
+          <li>Provided timely network troubleshooting to resolve connectivity issues.</li>
+          <li>Managed CCTV installation and configuration projects, ensuring 100% client satisfaction.</li>
+          <li>Assisted in configuring and maintaining network equipment to ensure operational efficiency.</li>
+          <li>Collaborated with the IT team to ensure seamless network performance across the organization.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3><span class="designation">NETWORK SUPPORT ENGINEER</span></h3>
+        <h4><span class="company">SOFFIT INFRASTRUCTURE SERVICE (P) LTD, INDIA</span> - 2016 - 2018</h4>
+        <ul>
+          <li>Provided network troubleshooting and technical support, reducing network downtime by 15%.</li>
+          <li>Ensured smooth network performance by resolving connectivity issues and system errors.</li>
+          <li>Assisted in the setup and configuration of network hardware and software.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3><span class="designation">DESKTOP SUPPORT ENGINEER</span></h3>
+        <h4><span class="company">KOTAK SECURITIES LTD, INDIA</span> - 2015 - 2016</h4>
+        <ul>
+          <li>Provided technical support for desktop, laptop, and peripheral issues across the organization.</li>
+          <li>Diagnosed and resolved hardware, software, and network connectivity problems for end-users.</li>
+          <li>Installed, configured, and upgraded operating systems, software applications, and hardware components.</li>
+          <li>Ensured timely resolution of IT support tickets, maintaining high levels of customer satisfaction.</li>
+          <li>Assisted in setting up and maintaining company workstations and IT infrastructure.</li>
+          <li>Maintained user accounts and permissions through Active Directory.</li>
+          <li>Coordinated with the network team to escalate and resolve complex issues promptly.</li>
+          <li>Educated users on basic troubleshooting steps, improving first-call resolution rates.</li>
+          <li>Installed and configured printers, scanners, and other peripherals to ensure seamless office operations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <ul class="skills-list">
+        <li><strong>Switching (Cisco/Aruba/HP):</strong> Expert</li>
+        <li><strong>Firewall Configuration (Fortinet):</strong> Advanced</li>
+        <li><strong>VPN / Remote Access:</strong> Advanced</li>
+        <li><strong>Network Monitoring (Zabbix, PRTG):</strong> Expert</li>
+        <li><strong>Wireless Configuration (Aruba, Ruijie):</strong> Advanced</li>
+        <li><strong>Avaya IP Office System</li>
+        <li>Real-Time Network Monitoring (PRTG)</li>
+        <li>Security Policies & Incident</li>
+        <li>VPN Configuration & Management</li>
+        <li>Troubleshooting & Technical Support</li>
+        <li>System & Network Optimization</li>
+        <li>CCTV Installation & Configuration</li>
+        <li>Customer Satisfaction & Issue</li>
+        <li>Team Leadership & Staff Management</li>
+        <li>Multi-Branch Network Management</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>Wazuh Deployment</h3>
+        <p>Real-time threat detection and compliance monitoring using Wazuh.</p>
+      </div>
+      <div class="project">
+        <h3>PRTG Monitoring</h3>
+        <p>Configured PRTG to track uptime, bandwidth, and usage across 6 locations.</p>
+      </div>
+      <div class="project">
+        <h3>Zabbix Implementation</h3>
+        <p>Set up custom alerts, templates, and graphs for server & app monitoring.</p>
+      </div>
+      <div class="project">
+        <h3>Full Network Infrastructure Setup</h3>
+        <p>From cabling to VLAN design — deployed secure multi-branch infra.</p>
+      </div>
+      <div class="project">
+        <h3>Centralized Browser History Monitoring System</h3>
+        <p>Built a centralized system to collect and monitor browser history logs (Chrome, Edge, Firefox, Brave) across 100+ client systems.</p>
+        <ul>
+          <li>📂 Logs browser history from Chrome, Edge, Firefox, Brave</li>
+          <li>🖥️ Python agents auto-upload logs from clients</li>
+          <li>📊 Flask SB Admin dashboard with search, sort, filter</li>
+          <li>🔐 Prevents browser history deletion by restricting policy</li>
+          <li>🧠 Open source, lightweight, and extensible</li>
+        </ul>
+      </div>
+      <div class="project">
+        <h3>Advanced File Integrity Monitoring System</h3>
+        <p>Developed a custom Python-based script to monitor changes in Word, Excel, PDF, and text files. Integrated the system with a Flask dashboard for centralized visibility. Additionally, enhanced monitoring with Wazuh to track deep-level file edits and reverted changes.</p>
+        <ul>
+          <li>📝 Tracks file-level changes even in unsaved interim edits</li>
+          <li>📂 Supports .docx, .xlsx, .pdf, .txt</li>
+          <li>📡 Real-time dashboard updates with Flask</li>
+          <li>🔒 Enhanced detection using Wazuh FIM module</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="certs">
+      <h2>Certifications</h2>
+      <ul class="certs-list">
+        <li>CCNA — Cisco Certified Network Associate</li>
+        <li>Fortinet NSE 1 (in progress)</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <p>B.Sc. Hardware System and Networking Administration – MS University, India | 2013</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:nidheeshlaal@gmail.com">nidheeshlaal@gmail.com</a></p>
+      <p>Phone: <a href="tel:+971526300672">+971-526300672</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/nidheeshlal-e-d-419a6b26a" target="_blank">linkedin.com/in/nidheeshlal</a></p>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Nidheeshlal E D | All rights reserved
+  </footer>
+
+  <!-- Modal for full profile pic -->
+  <div id="modal" style="
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;">
+    <img id="fullPic" src="profile.jpg" alt="Full Profile Picture" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 0 15px #fff;" />
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const tabs = document.querySelectorAll(".tab-btn");
-      const sections = document.querySelectorAll(".tab-section");
+    const tabs = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('section');
 
-      tabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-          tabs.forEach(t => t.classList.remove("active"));
-          sections.forEach(s => s.style.display = "none");
-
-          tab.classList.add("active");
-          const activeSection = document.getElementById(tab.dataset.tab);
-          if (activeSection) activeSection.style.display = "block";
-        });
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
       });
+    });
 
-      // Show the first tab by default
-      if (tabs.length && sections.length) {
-        tabs[0].classList.add("active");
-        sections[0].style.display = "block";
-      }
+    // Profile pic modal logic
+    const profilePic = document.getElementById('profilePic');
+    const modal = document.getElementById('modal');
 
-      // Video modal
-      const modal = document.getElementById("videoModal");
-      const frame = document.getElementById("videoFrame");
+    profilePic.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
 
-      document.querySelectorAll(".video-thumbnail").forEach(thumb => {
-        thumb.addEventListener("click", () => {
-          frame.src = thumb.dataset.video;
-          modal.style.display = "flex";
-        });
-      });
-
-      modal.addEventListener("click", () => {
-        frame.src = "";
-        modal.style.display = "none";
-      });
+    modal.addEventListener('click', () => {
+      modal.style.display = 'none';
     });
   </script>
 </body>
