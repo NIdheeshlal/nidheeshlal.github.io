@@ -501,82 +501,103 @@
       <p>Email: <a href="mailto:nidheeshlaal@gmail.com">nidheeshlaal@gmail.com</a></p>
       <p>Phone: <a href="tel:+971526300672">+971-526300672</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/nidheeshlal-e-d-419a6b26a" target="_blank">linkedin.com/in/nidheeshlal</a></p>
+      <p><strong>Location:</strong> Dubai, UAE</p>
     </section>
   </div>
 
-  <!-- Modal for playing videos -->
-  <div id="videoModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999;">
-    <button id="modalCloseBtn" aria-label="Close Video">&times;</button>
-    <video id="modalVideo" controls style="max-width:90vw; max-height:80vh; border-radius:10px; box-shadow:0 0 20px #ffa726;"></video>
-  </div>
+  <footer>
+    &copy; 2025 Nidheeshlal E D. All rights reserved.
+  </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const tabButtons = document.querySelectorAll('.tab-btn');
-      const sections = document.querySelectorAll('section');
+    // Tab switching logic
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-      tabButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          tabButtons.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          const target = btn.getAttribute('data-tab');
-
-          sections.forEach(sec => {
-            if (sec.id === target) {
-              sec.classList.add('active');
-            } else {
-              sec.classList.remove('active');
-            }
-          });
-        });
+        const tab = btn.getAttribute('data-tab');
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+        document.getElementById(tab).classList.add('active');
       });
+    });
 
-      const videoBoxes = document.querySelectorAll('.video-box');
-      const modal = document.getElementById('videoModal');
-      const modalVideo = document.getElementById('modalVideo');
-      const closeBtn = document.getElementById('modalCloseBtn');
+    // Video play on click logic
+    document.querySelectorAll('.video-box').forEach(box => {
+      const video = box.querySelector('video');
+      const playBtn = box.querySelector('.play-button');
+      const videoSrc = box.getAttribute('data-video');
 
-      videoBoxes.forEach(box => {
-        const videoElement = box.querySelector('video');
-        const playBtn = box.querySelector('.play-button');
-        const videoSrc = box.getAttribute('data-video');
+      // Set video src but don't autoplay, muted by default
+      video.src = videoSrc;
+      video.controls = false;
 
-        // Load poster thumbnail but no source initially
-        videoElement.src = videoSrc;
-        videoElement.load();
-        videoElement.pause();
-
-        function openModal() {
-          modal.style.display = 'flex';
-          modalVideo.src = videoSrc;
-          modalVideo.currentTime = 0;
-          modalVideo.play();
+      const playVideo = () => {
+        if (video.paused) {
+          video.play();
+          video.controls = true;
+          playBtn.style.display = 'none';
+        } else {
+          video.pause();
+          video.controls = false;
+          playBtn.style.display = 'block';
+          video.currentTime = 0;
         }
+      };
 
-        playBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          openModal();
+      playBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playVideo();
+      });
+
+      video.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playVideo();
+      });
+
+      // Pause video when switching tabs or clicking elsewhere
+      document.querySelectorAll('.tab-btn').forEach(tabBtn => {
+        tabBtn.addEventListener('click', () => {
+          video.pause();
+          video.controls = false;
+          playBtn.style.display = 'block';
+          video.currentTime = 0;
         });
-
-        box.addEventListener('click', () => {
-          openModal();
-        });
       });
+    });
 
-      closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-        modalVideo.pause();
-        modalVideo.src = '';
-      });
+    // Profile pic modal logic
+    const profilePic = document.getElementById('profilePic');
 
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.style.display = 'none';
-          modalVideo.pause();
-          modalVideo.src = '';
-        }
-      });
+    const profileModal = document.createElement('div');
+    profileModal.style.display = 'none';
+    profileModal.style.position = 'fixed';
+    profileModal.style.top = '0';
+    profileModal.style.left = '0';
+    profileModal.style.width = '100vw';
+    profileModal.style.height = '100vh';
+    profileModal.style.background = 'rgba(0,0,0,0.9)';
+    profileModal.style.justifyContent = 'center';
+    profileModal.style.alignItems = 'center';
+    profileModal.style.zIndex = '10000';
+    profileModal.style.cursor = 'pointer';
+
+    const fullImg = document.createElement('img');
+    fullImg.src = profilePic.src;
+    fullImg.style.maxWidth = '90vw';
+    fullImg.style.maxHeight = '90vh';
+    fullImg.style.borderRadius = '10px';
+    fullImg.style.boxShadow = '0 0 20px #ffa726';
+    profileModal.appendChild(fullImg);
+
+    document.body.appendChild(profileModal);
+
+    profilePic.addEventListener('click', () => {
+      profileModal.style.display = 'flex';
+    });
+
+    profileModal.addEventListener('click', () => {
+      profileModal.style.display = 'none';
     });
   </script>
 </body>
