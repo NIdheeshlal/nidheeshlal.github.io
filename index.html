@@ -1,543 +1,1317 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nidheeshlal E D | Network Administrator</title>
-  <meta name="description" content="Portfolio of Nidheeshlal E D, Network Administrator with 9+ years of experience in secure network infrastructure and monitoring." />
-  <meta name="author" content="Nidheeshlal E D" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Portfolio of Nidheeshlal E D, Network Administrator with 9+ years of experience in secure network infrastructure and monitoring." />
+<meta name="author" content="Nidheeshlal E D" />
+<title>Nidheeshlal E D | Network Administrator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #030b14;
+    --bg2: #071525;
+    --bg3: #0b2039;
+    --accent: #00d4ff;
+    --accent2: #00ff9d;
+    --accent3: #ff6b35;
+    --text: #cce8ff;
+    --text2: #7ab0d4;
+    --text3: #3d6a8a;
+    --border: rgba(0,212,255,0.15);
+    --border2: rgba(0,212,255,0.35);
+    --glow: 0 0 20px rgba(0,212,255,0.3);
+    --glow2: 0 0 40px rgba(0,212,255,0.15);
+    --font-mono: 'Share Tech Mono', monospace;
+    --font-display: 'Rajdhani', sans-serif;
+    --font-body: 'Exo 2', sans-serif;
   }
 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
   body {
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── CANVAS BG ─── */
+  #bg-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  /* ─── SCAN LINE OVERLAY ─── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.04) 2px,
+      rgba(0,0,0,0.04) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 60px;
+    background: rgba(3,11,20,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 2px;
+  }
+
+  .nav-logo span { color: var(--text3); }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0 1rem;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text2);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ─── WRAPPER ─── */
+  .wrapper {
+    position: relative;
+    z-index: 10;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 60px;
+    position: relative;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent2);
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent2);
+  }
+
+  h1.hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  h1.hero-name .highlight {
+    color: var(--accent);
+    text-shadow: 0 0 30px rgba(0,212,255,0.6);
+  }
+
+  .hero-title {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--text2);
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .hero-title .blink {
+    color: var(--accent);
+    animation: blink 1.2s step-end infinite;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--text2);
+    max-width: 540px;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(0,212,255,0.5);
+  }
+
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  }
+
+  .btn-primary:hover {
+    background: #fff;
+    box-shadow: 0 0 30px rgba(0,212,255,0.6);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--border2);
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(0,212,255,0.1);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* ─── HERO AVATAR ─── */
+  .hero-avatar-wrap {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    flex-shrink: 0;
+  }
+
+  .avatar-ring {
+    position: absolute;
+    inset: -16px;
+    border-radius: 50%;
+    border: 1px solid var(--border2);
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .avatar-ring::before {
+    content: '';
+    position: absolute;
+    top: -4px; left: 50%;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px var(--accent);
+  }
+
+  @keyframes spin-slow { to { transform: rotate(360deg); } }
+
+  .avatar-ring2 {
+    position: absolute;
+    inset: -32px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,255,157,0.15);
+    animation: spin-slow 35s linear infinite reverse;
+  }
+
+  .avatar-img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid var(--border2);
+    position: relative;
+    z-index: 2;
+    display: block;
+    filter: saturate(0.9) contrast(1.05);
+  }
+
+  .avatar-placeholder {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: var(--bg3);
+    border: 2px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(0,212,255,0.5);
+  }
+
+  /* ─── SECTION COMMON ─── */
+  section {
+    padding: 5rem 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent2);
+    letter-spacing: 2px;
+  }
+
+  h2.section-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     color: #fff;
   }
 
-  header {
-    background: rgba(28, 49, 68, 0.85);
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border2), transparent);
   }
 
-  header img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #fff;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
+  /* ─── EXPERIENCE ─── */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
 
-  header img:hover {
-    transform: scale(1.05);
-  }
-
-  header h1 {
-    font-size: 2.4rem;
-  }
-
-  header p {
-    font-size: 1.1rem;
-    margin-top: 5px;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background: rgba(50, 74, 95, 0.9);
-  }
-
-  nav button {
-    background: none;
-    border: none;
-    color: white;
-    padding: 15px 25px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  nav button.active,
-  nav button:hover {
-    background: #4e6e8e;
-  }
-
-  .container {
-    max-width: 960px;
-    margin: 30px auto;
-    padding: 0 20px;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    min-height: 400px;
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
     position: relative;
-    padding-bottom: 50px;
   }
 
-  section {
-    display: none;
-    padding: 30px 0;
-  }
-
-  section.active {
-    display: block;
-    animation: fadeIn 0.6s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-
-  h2 {
-    color: #4FC3F7;
-    margin-bottom: 15px;
-  }
-
-  .skills-list li,
-  .certs-list li {
-    margin-bottom: 8px;
-  }
-
-  .project {
-    margin-bottom: 20px;
-  }
-
-  .project h3 {
-    color: #B39DDB;
-    margin-bottom: 5px;
-  }
-
-  a {
-    color: #B39DDB;
-  }
-
-  footer {
-    background: rgba(28, 49, 68, 0.85);
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 0.9rem;
-    position: fixed;
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 192px;
+    top: 0;
     bottom: 0;
-    width: 100%;
-    left: 0;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    width: 1px;
+    background: var(--border);
   }
 
-  #experience .designation {
-    color: #4FC3F7;
-    font-weight: 700;
+  .exp-item::after {
+    content: '';
+    position: absolute;
+    left: 188px;
+    top: 2.5rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+  }
+
+  .exp-meta { padding-right: 2rem; }
+
+  .exp-period {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent2);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-company {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text2);
+    letter-spacing: 1px;
     text-transform: uppercase;
+    line-height: 1.3;
+  }
+
+  .exp-loc {
+    font-size: 12px;
+    color: var(--text3);
+    margin-top: 4px;
+    font-family: var(--font-mono);
+  }
+
+  h3.exp-role {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+
+  .exp-current {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #000;
+    background: var(--accent2);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .exp-bullets li {
+    font-size: 14px;
+    color: var(--text2);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .exp-bullets li::before {
+    content: '›';
+    color: var(--accent);
+    font-size: 16px;
+    line-height: 1.5;
+    flex-shrink: 0;
+  }
+
+  /* ─── SKILLS ─── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent), transparent);
+  }
+
+  .skill-card:hover {
+    border-color: var(--border2);
+    box-shadow: var(--glow2);
+  }
+
+  .skill-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .skill-level {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent2);
     letter-spacing: 1px;
   }
 
-  #experience .company {
-    color: #B39DDB;
-    font-weight: 600;
-    margin-left: 5px;
-    font-style: italic;
-  }
-
-  #experience ul {
-    margin-top: 10px;
-    list-style-type: disc;
-    padding-left: 20px;
-  }
-
-  #modalCloseBtn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 30px;
-    color: #4FC3F7;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 10000;
-    transition: color 0.3s ease;
-  }
-
-  #modalCloseBtn:hover {
-    color: #29B6F6;
-  }
-
-  .video-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-
-  .video-box {
-    position: relative;
-    width: calc(50% - 20px);
-    border: 3px solid #4FC3F7;
-    border-radius: 10px;
+  .skill-bar-track {
+    height: 4px;
+    background: var(--bg3);
+    border-radius: 2px;
     overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 0 10px #4FC3F7;
-    transition: box-shadow 0.3s ease;
   }
 
-  .video-box:hover {
-    box-shadow: 0 0 20px #29B6F6;
+  .skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--accent), var(--accent2));
+    border-radius: 2px;
+    position: relative;
+    animation: bar-in 1.2s ease both;
+    animation-delay: var(--d, 0s);
   }
 
-  .video-box video {
-    width: 100%;
-    display: block;
-    border-radius: 10px;
-    cursor: pointer;
+  @keyframes bar-in { from { width: 0 !important; } }
+
+  /* ─── PROJECTS ─── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
   }
 
-  .video-title {
-    text-align: center;
-    margin-top: 6px;
-    font-weight: 700;
-    color: #B39DDB;
-    font-size: 1.1rem;
-    user-select: none;
+  .proj-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: default;
   }
 
-  .play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background: rgba(79, 195, 247, 0.8);
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(79, 195, 247, 0.7);
-    cursor: pointer;
-    z-index: 10;
-    transition: background 0.3s ease;
-  }
-
-  .play-button:hover {
-    background: rgba(2, 136, 209, 0.9);
-  }
-
-  .play-button:before {
+  .proj-card::after {
     content: '';
     position: absolute;
-    left: 22px;
-    top: 15px;
-    border-style: solid;
-    border-width: 15px 0 15px 25px;
-    border-color: transparent transparent transparent white;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
   }
 
-  .watch-demo-text {
-    margin-top: 20px;
-    font-size: 1.2rem;
+  .proj-card:hover {
+    border-color: var(--border2);
+    box-shadow: var(--glow2);
+    transform: translateY(-4px);
+  }
+
+  .proj-card:hover::after { opacity: 1; }
+
+  .proj-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  h3.proj-title {
+    font-family: var(--font-display);
+    font-size: 16px;
     font-weight: 600;
-    color: #4FC3F7;
-    user-select: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+
+  .proj-desc {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .proj-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .proj-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.2);
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+
+  /* ─── CERTIFICATIONS & EDUCATION ─── */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .cert-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: border-color 0.3s;
+  }
+
+  .cert-card:hover { border-color: var(--border2); }
+
+  .cert-icon-wrap {
+    width: 44px; height: 44px;
+    background: rgba(0,212,255,0.1);
+    border: 1px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .cert-title {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+  }
+
+  .cert-sub {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text3);
+    letter-spacing: 1px;
+  }
+
+  .cert-badge {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
+  .cert-badge.active { background: rgba(0,255,157,0.15); color: var(--accent2); border: 1px solid rgba(0,255,157,0.3); }
+  .cert-badge.progress { background: rgba(255,107,53,0.15); color: var(--accent3); border: 1px solid rgba(255,107,53,0.3); }
+
+  .edu-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 1.5rem 2rem;
+  }
+
+  .edu-degree {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+
+  .edu-school {
+    font-size: 14px;
+    color: var(--text2);
+  }
+
+  .edu-year {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 0.5rem;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact .wrapper > p {
+    color: var(--text2);
+    margin-top: -1.5rem;
+    margin-bottom: 2.5rem;
+    font-size: 15px;
+    max-width: 500px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s;
+  }
+
+  .contact-item:hover {
+    border-color: var(--border2);
+    background: var(--bg3);
+    box-shadow: var(--glow2);
+  }
+
+  .contact-ico {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .contact-value {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    position: relative;
+    z-index: 10;
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text3);
+    letter-spacing: 2px;
+  }
+
+  footer span { color: var(--accent); }
+
+  /* ─── DIVIDER ─── */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border2), transparent);
+  }
+
+  /* ─── HERO ENTRANCE ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fade-up 0.8s ease both;
+  }
+
+  @keyframes fade-up {
+    to { opacity: 1; transform: none; }
+  }
+
+  .fade-up:nth-child(1) { animation-delay: 0.1s; }
+  .fade-up:nth-child(2) { animation-delay: 0.2s; }
+  .fade-up:nth-child(3) { animation-delay: 0.35s; }
+  .fade-up:nth-child(4) { animation-delay: 0.5s; }
+  .fade-up:nth-child(5) { animation-delay: 0.65s; }
+  .fade-up:nth-child(6) { animation-delay: 0.8s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-avatar-wrap { margin: 0 auto; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .exp-item::before, .exp-item::after { display: none; }
+    nav { display: none; }
   }
 </style>
-
 </head>
-
 <body>
-  <header>
-    <img id="profilePic" src="profile.jpg" alt="Nidheeshlal E D" />
-    <h1>Nidheeshlal E D</h1>
-    <p>Network Administrator</p>
-  </header>
 
-  <nav>
-    <button class="tab-btn active" data-tab="about">About</button>
-    <button class="tab-btn" data-tab="resume">Resume</button>
-    <button class="tab-btn" data-tab="experience">Experience</button>
-    <button class="tab-btn" data-tab="skills">Skills</button>
-    <button class="tab-btn" data-tab="projects">Projects</button>
-    <button class="tab-btn" data-tab="certs">Certifications</button>
-    <button class="tab-btn" data-tab="education">Education</button>
-    <button class="tab-btn" data-tab="contact">Contact</button>
-  </nav>
+<canvas id="bg-canvas"></canvas>
 
-  <div class="container">
-    <section id="about" class="active">
-      <h2>About Me</h2>
-      <p>Results-oriented Network Administrator with 9+ years of experience designing and managing secure, scalable infrastructures across multiple branches. Expert in switches (Cisco, Aruba, HP, Ruijie), Fortinet firewalls (200E, 60F, 60E), Aruba Central wireless, VPN, and PRTG monitoring. CCNA certified. Passionate about minimizing downtime and optimizing security.</p>
-    </section>
+<nav>
+  <div class="nav-logo"><span>[ </span>NED<span> ]</span> &nbsp;portfolio.sys</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certs">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <section id="resume">
-      <h2>Resume</h2>
-      <p><a href="Nidheeshlal_Resume.pdf" target="_blank">Download My Resume (PDF)</a></p>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-
-      <div class="job">
-        <h3><span class="designation">NETWORK ADMINISTRATOR</span></h3>
-        <h4><span class="company">FRESH FRUITS COMPANY – DUBAI, UAE</span> - 05-2023 / Present</h4>
-        <ul>
-          <li>Install, configure, and maintain network hardware and software, including routers, switches, firewalls, and servers.</li>
-          <li>Monitor network performance and ensure system availability and reliability.</li>
-          <li>Troubleshoot and resolve network issues in a timely manner.</li>
-          <li>Manage and maintain VPNs, firewalls, and network security protocols.</li>
-          <li>Ensure network security by enforcing policies, updating security software, and monitoring for vulnerabilities.</li>
-          <li>Perform regular system backups and recovery procedures.</li>
-          <li>Maintain documentation of network configurations, procedures, and changes.</li>
-          <li>Assist with basic management of the Avaya IP Office phone system, including updating extensions and IVR greetings.</li>
-        </ul>
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="wrapper">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag fade-up">NETWORK ADMINISTRATOR — DUBAI, UAE</div>
+        <h1 class="hero-name fade-up">
+          <span class="highlight">Nidheeshlal</span><br>E D
+        </h1>
+        <div class="hero-title fade-up">
+          <span id="typewriter"></span><span class="blink">_</span>
+        </div>
+        <p class="hero-desc fade-up">
+          Results-oriented Network Administrator with 9+ years designing and managing secure, scalable infrastructure across multiple branches. CCNA certified. Expert in Fortinet firewalls, Cisco/Aruba switching, VPN, and PRTG monitoring.
+        </p>
+        <div class="hero-stats fade-up">
+          <div class="stat-item">
+            <span class="stat-num">9+</span>
+            <span class="stat-label">Years Exp.</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">6</span>
+            <span class="stat-label">Locations</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">100+</span>
+            <span class="stat-label">Endpoints</span>
+          </div>
+        </div>
+        <div class="hero-cta fade-up">
+          <a href="https://nidheeshlal.github.io/Nidheeshlal_Resume.pdf" class="btn btn-primary" target="_blank" rel="noopener">↓ Download Resume</a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
       </div>
-
-      <div class="job">
-        <h3><span class="designation">IT SUPPORT ENGINEER</span></h3>
-        <h4><span class="company">AL QASIMI GROUP L.L.C | SHARJAH, UAE</span> - 03-2021 – 03-2023</h4>
-        <ul>
-          <li>Reduced system downtime by 20% with proactive hardware/software maintenance.</li>
-          <li>Improved customer satisfaction by 15% with efficient support.</li>
-          <li>Troubleshot network and system issues to ensure smooth operations.</li>
-          <li>Assisted in configuring and maintaining network infrastructure including switches, routers, and firewalls.</li>
-        </ul>
+      <div class="hero-avatar-wrap fade-up">
+        <div class="avatar-ring2"></div>
+        <div class="avatar-ring"></div>
+        <img
+          src="https://nidheeshlal.github.io/profile.jpg"
+          alt="Nidheeshlal E D"
+          class="avatar-img"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="avatar-placeholder" style="display:none;">NED</div>
       </div>
-
-      <div class="job">
-        <h3><span class="designation">CHIEF EXECUTIVE OFFICER</span></h3>
-        <h4><span class="company">TECHIES, INDIA</span> - 2018 - 2020</h4>
-        <ul>
-          <li>Provided timely network troubleshooting to resolve connectivity issues.</li>
-          <li>Managed CCTV installation and configuration projects, ensuring 100% client satisfaction.</li>
-          <li>Assisted in configuring and maintaining network equipment to ensure operational efficiency.</li>
-          <li>Collaborated with the IT team to ensure seamless network performance across the organization.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <h3><span class="designation">NETWORK SUPPORT ENGINEER</span></h3>
-        <h4><span class="company">SOFFIT INFRASTRUCTURE SERVICE (P) LTD, INDIA</span> - 2016 - 2018</h4>
-        <ul>
-          <li>Provided network troubleshooting and technical support, reducing network downtime by 15%.</li>
-          <li>Ensured smooth network performance by resolving connectivity issues and system errors.</li>
-          <li>Assisted in the setup and configuration of network hardware and software.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <h3><span class="designation">DESKTOP SUPPORT ENGINEER</span></h3>
-        <h4><span class="company">KOTAK SECURITIES LTD, INDIA</span> - 2015 - 2016</h4>
-        <ul>
-          <li>Provided technical support for desktop, laptop, and peripheral issues across the organization.</li>
-          <li>Diagnosed and resolved hardware, software, and network connectivity problems for end-users.</li>
-          <li>Installed, configured, and upgraded operating systems, software applications, and hardware components.</li>
-          <li>Ensured timely resolution of IT support tickets, maintaining high levels of customer satisfaction.</li>
-          <li>Assisted in setting up and maintaining company workstations and IT infrastructure.</li>
-          <li>Maintained user accounts and permissions through Active Directory.</li>
-          <li>Coordinated with the network team to escalate and resolve complex issues promptly.</li>
-          <li>Educated users on basic troubleshooting steps, improving first-call resolution rates.</li>
-          <li>Installed and configured printers, scanners, and other peripherals to ensure seamless office operations.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Technical Skills</h2>
-      <ul class="skills-list">
-        <li><strong>Switching (Cisco/Aruba/HP):</strong> Expert</li>
-        <li><strong>Firewall Configuration (Fortinet):</strong> Advanced</li>
-        <li><strong>VPN / Remote Access:</strong> Advanced</li>
-        <li><strong>Network Monitoring (Zabbix, PRTG):</strong> Expert</li>
-        <li><strong>Wireless Configuration (Aruba, Ruijie):</strong> Advanced</li>
-        <li><strong>Avaya IP Office System</strong></li>
-        <li>Real-Time Network Monitoring (PRTG)</li>
-        <li>Security Policies & Incident</li>
-        <li>VPN Configuration & Management</li>
-        <li>Troubleshooting & Technical Support</li>
-        <li>System & Network Optimization</li>
-        <li>CCTV Installation & Configuration</li>
-        <li>Customer Satisfaction & Issue</li>
-        <li>Team Leadership & Staff Management</li>
-        <li>Multi-Branch Network Management</li>
-      </ul>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>Wazuh Deployment</h3>
-        <p>Real-time threat detection and compliance monitoring using Wazuh.</p>
-      </div>
-      <div class="project">
-        <h3>PRTG Monitoring</h3>
-        <p>Configured PRTG to track uptime, bandwidth, and usage across 6 locations.</p>
-      </div>
-      <div class="project">
-        <h3>Zabbix Implementation</h3>
-        <p>Set up custom alerts, templates, and graphs for server & app monitoring.</p>
-      </div>
-    <div class="project">
-        <h3>Full Network Infrastructure Setup</h3>
-        <p>From cabling to VLAN design — deployed secure multi-branch infra.</p>
-      </div>
-      <div class="project">
-        <h3>Centralized Browser History Monitoring System</h3>
-        <p>Built a centralized system to collect and monitor browser history logs (Chrome, Edge, Firefox, Brave) across 100+ client systems.</p>
-        <ul>
-          <li>📂 Logs browser history from Chrome, Edge, Firefox, Brave</li>
-          <li>🖥️ Python agents auto-upload logs from clients</li>
-          <li>📊 Flask SB Admin dashboard with search, sort, filter</li>
-          <li>🔐 Prevents browser history deletion by restricting policy</li>
-          <li>🧠 Open source, lightweight, and extensible</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <h3>Smart PDF To Excel Extractor</h3>
-        <p>Automated extraction of structured data from PDFs to Excel files using Python.</p>
-      </div>
-
-      <div class="project">
-        <h3>Advanced File Integrity Monitoring System</h3>
-        <p>Developed a custom Python-based script to monitor changes in Word, Excel, PDF, and text files. Integrated the system with a Flask dashboard for centralized visibility. Additionally, enhanced monitoring with Wazuh to track deep-level file edits and reverted changes.</p>
-        <ul>
-          <li>📝 Tracks file-level changes even in unsaved interim edits</li>
-          <li>📂 Supports .docx, .xlsx, .pdf, .txt</li>
-          <li>📡 Real-time dashboard updates with Flask</li>
-          <li>🔒 Enhanced detection using Wazuh FIM module</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="certs">
-      <h2>Certifications</h2>
-      <ul class="certs-list">
-        <li>CCNA — Cisco Certified Network Associate</li>
-        <li>Fortinet NSE 1 (in progress)</li>
-      </ul>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <p>B.Sc. Hardware System and Networking Administration – MS University, India | 2013</p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:nidheeshlaal@gmail.com">nidheeshlaal@gmail.com</a></p>
-      <p>Phone: <a href="tel:+971526300672">+971-526300672</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/nidheeshlal-e-d-419a6b26a" target="_blank">linkedin.com/in/nidheeshlal</a></p>
-      <p><strong>Location:</strong> Dubai, UAE</p>
-    </section>
+    </div>
   </div>
+</section>
 
-  <footer>
-    &copy; 2025 Nidheeshlal E D. All rights reserved.
-  </footer>
+<div class="section-divider"></div>
 
-  <script>
-    // Tab switching logic
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience">
+  <div class="wrapper">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="exp-list">
 
-        const tab = btn.getAttribute('data-tab');
-        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-        document.getElementById(tab).classList.add('active');
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">05/2023 — Present</div>
+          <div class="exp-company">Fresh Fruits Company LLC</div>
+          <div class="exp-loc">Dubai, UAE</div>
+        </div>
+        <div>
+          <h3 class="exp-role">Network Administrator <span class="exp-current">CURRENT</span></h3>
+          <ul class="exp-bullets">
+            <li>Install, configure, and maintain network hardware including routers, switches, firewalls, and servers.</li>
+            <li>Monitor network performance and ensure system availability and reliability across 6 branch locations.</li>
+            <li>Manage and maintain VPNs, firewalls (Fortinet 200E/60F/60E), and network security protocols.</li>
+            <li>Enforce security policies, update security software, and monitor for vulnerabilities proactively.</li>
+            <li>Maintain documentation of network configurations, procedures, and changes.</li>
+            <li>Assist with basic management of Avaya IP Office phone system — extensions and IVR greetings.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">03/2021 — 03/2023</div>
+          <div class="exp-company">Al Qasimi Group L.L.C</div>
+          <div class="exp-loc">Sharjah, UAE</div>
+        </div>
+        <div>
+          <h3 class="exp-role">IT Support Engineer</h3>
+          <ul class="exp-bullets">
+            <li>Reduced system downtime by 20% with proactive hardware and software maintenance.</li>
+            <li>Improved customer satisfaction by 15% through efficient issue resolution.</li>
+            <li>Assisted in configuring and maintaining network infrastructure including switches, routers, and firewalls.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">2018 — 2020</div>
+          <div class="exp-company">Techies</div>
+          <div class="exp-loc">India</div>
+        </div>
+        <div>
+          <h3 class="exp-role">Chief Executive Officer</h3>
+          <ul class="exp-bullets">
+            <li>Managed CCTV installation and configuration projects with 100% client satisfaction.</li>
+            <li>Led network troubleshooting and connectivity issue resolution for clients.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">2016 — 2018</div>
+          <div class="exp-company">Soffit Infrastructure Service (P) Ltd</div>
+          <div class="exp-loc">India</div>
+        </div>
+        <div>
+          <h3 class="exp-role">Network Support Engineer</h3>
+          <ul class="exp-bullets">
+            <li>Reduced network downtime by 15% through proactive troubleshooting and technical support.</li>
+            <li>Assisted in setup and configuration of network hardware and software.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">2015 — 2016</div>
+          <div class="exp-company">Kotak Securities Ltd</div>
+          <div class="exp-loc">India</div>
+        </div>
+        <div>
+          <h3 class="exp-role">Desktop Support Engineer</h3>
+          <ul class="exp-bullets">
+            <li>Provided technical support for desktop, laptop, and peripheral issues across the organization.</li>
+            <li>Maintained user accounts and permissions through Active Directory.</li>
+            <li>Educated users on basic troubleshooting, improving first-call resolution rates.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ SKILLS ═══ -->
+<section id="skills">
+  <div class="wrapper">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-name">Switching (Cisco / Aruba / HP) <span class="skill-level">Expert</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:95%; --d:0.1s;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Firewall Config (Fortinet) <span class="skill-level">Advanced</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%; --d:0.2s;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">VPN / Remote Access <span class="skill-level">Advanced</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%; --d:0.3s;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Network Monitoring (PRTG / Zabbix) <span class="skill-level">Expert</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%; --d:0.4s;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Wireless (Aruba / Ruijie) <span class="skill-level">Advanced</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%; --d:0.5s;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Security Policies &amp; Incident Mgmt <span class="skill-level">Advanced</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%; --d:0.6s;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Multi-Branch Network Mgmt <span class="skill-level">Expert</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:95%; --d:0.7s;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Avaya IP Office System <span class="skill-level">Intermediate</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:65%; --d:0.8s;"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">CCTV Install &amp; Config <span class="skill-level">Advanced</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%; --d:0.9s;"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ PROJECTS ═══ -->
+<section id="projects">
+  <div class="wrapper">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Projects</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+
+      <div class="proj-card">
+        <span class="proj-icon">🛡️</span>
+        <h3 class="proj-title">Wazuh Deployment</h3>
+        <p class="proj-desc">Real-time threat detection and compliance monitoring using Wazuh SIEM across company infrastructure.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">SIEM</span>
+          <span class="proj-tag">Threat Detection</span>
+          <span class="proj-tag">Compliance</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-icon">📊</span>
+        <h3 class="proj-title">PRTG Monitoring</h3>
+        <p class="proj-desc">Configured PRTG to track uptime, bandwidth, and usage metrics across 6 branch locations in real time.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">PRTG</span>
+          <span class="proj-tag">Bandwidth</span>
+          <span class="proj-tag">Multi-Branch</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-icon">⚡</span>
+        <h3 class="proj-title">Zabbix Implementation</h3>
+        <p class="proj-desc">Set up custom alerts, templates, and graphs for server and application monitoring with Zabbix.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Zabbix</span>
+          <span class="proj-tag">Alerting</span>
+          <span class="proj-tag">Templates</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-icon">🌐</span>
+        <h3 class="proj-title">Full Network Infrastructure</h3>
+        <p class="proj-desc">End-to-end network deployment — from cabling to VLAN design — for a secure multi-branch infrastructure.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">VLAN</span>
+          <span class="proj-tag">Cabling</span>
+          <span class="proj-tag">Firewall</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-icon">🔍</span>
+        <h3 class="proj-title">Centralized Browser History Monitor</h3>
+        <p class="proj-desc">Built a centralized system collecting and monitoring browser history logs (Chrome, Edge, Firefox, Brave) across 100+ client systems with a Flask dashboard and policy-based deletion prevention.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">Flask</span>
+          <span class="proj-tag">100+ Clients</span>
+          <span class="proj-tag">GPO</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-icon">📄</span>
+        <h3 class="proj-title">Smart PDF to Excel Extractor</h3>
+        <p class="proj-desc">Automated extraction of structured data from PDFs into Excel files using Python — saving hours of manual data entry.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">Automation</span>
+          <span class="proj-tag">Data Extraction</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-icon">🔒</span>
+        <h3 class="proj-title">Advanced File Integrity Monitor</h3>
+        <p class="proj-desc">Custom Python-based file integrity monitoring for .docx, .xlsx, .pdf, and .txt files with a Flask dashboard and deep-level Wazuh FIM integration for detecting unsaved interim edits.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">Flask</span>
+          <span class="proj-tag">Wazuh FIM</span>
+          <span class="proj-tag">Real-Time</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ CERTIFICATIONS & EDUCATION ═══ -->
+<section id="certs">
+  <div class="wrapper">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Certifications &amp; Education</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-icon-wrap">🏅</div>
+        <div>
+          <div class="cert-title">CCNA</div>
+          <div class="cert-sub">Cisco Certified Network Associate</div>
+          <span class="cert-badge active">● CERTIFIED</span>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon-wrap">🔐</div>
+        <div>
+          <div class="cert-title">Fortinet NSE 1</div>
+          <div class="cert-sub">Network Security Expert — Level 1</div>
+          <span class="cert-badge progress">◌ IN PROGRESS</span>
+        </div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">B.Sc. Hardware System &amp; Networking Administration</div>
+      <div class="edu-school">MS University, India</div>
+      <div class="edu-year">2013</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="wrapper">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Contact</h2>
+      <div class="section-line"></div>
+    </div>
+    <p style="color:var(--text2); margin-top: -1.5rem; margin-bottom: 2.5rem; font-size:15px;">
+      Open to new opportunities and collaborations. Let's connect.
+    </p>
+    <div class="contact-grid">
+      <a href="mailto:nidheeshlaal@gmail.com" class="contact-item">
+        <span class="contact-ico">✉️</span>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">nidheeshlaal@gmail.com</div>
+        </div>
+      </a>
+      <a href="tel:+971526300672" class="contact-item">
+        <span class="contact-ico">📞</span>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">+971-526300672</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/nidheeshlal-e-d-419a6b26a" target="_blank" rel="noopener" class="contact-item">
+        <span class="contact-ico">💼</span>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">nidheeshlal-e-d</div>
+        </div>
+      </a>
+      <div class="contact-item">
+        <span class="contact-ico">📍</span>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-value">Dubai, UAE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>©</span> 2025 Nidheeshlal E D &nbsp;·&nbsp; All systems operational &nbsp;·&nbsp; <span>nidheeshlal.github.io</span>
+</footer>
+
+<script>
+/* ─── ANIMATED NETWORK BG ─── */
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [], animId;
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function initNodes() {
+    nodes = [];
+    const count = Math.floor((W * H) / 18000);
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 2 + 1
       });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    /* grid */
+    ctx.strokeStyle = 'rgba(0,212,255,0.03)';
+    ctx.lineWidth = 1;
+    const gs = 80;
+    for (let x = 0; x < W; x += gs) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+    for (let y = 0; y < H; y += gs) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+
+    /* update */
+    nodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
     });
 
-    // Video play on click logic
-    document.querySelectorAll('.video-box').forEach(box => {
-      const video = box.querySelector('video');
-      const playBtn = box.querySelector('.play-button');
-      const videoSrc = box.getAttribute('data-video');
-
-      // Set video src but don't autoplay, muted by default
-      video.src = videoSrc;
-      video.controls = false;
-
-      const playVideo = () => {
-        if (video.paused) {
-          video.play();
-          video.controls = true;
-          playBtn.style.display = 'none';
-        } else {
-          video.pause();
-          video.controls = false;
-          playBtn.style.display = 'block';
-          video.currentTime = 0;
+    /* edges */
+    const dist = 160;
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i+1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < dist) {
+          ctx.strokeStyle = `rgba(0,212,255,${0.18 * (1 - d/dist)})`;
+          ctx.lineWidth = 0.8;
+          ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke();
         }
-      };
+      }
+    }
 
-      playBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        playVideo();
-      });
-
-      video.addEventListener('click', (e) => {
-        e.stopPropagation();
-        playVideo();
-      });
-
-      // Pause video when switching tabs or clicking elsewhere
-      document.querySelectorAll('.tab-btn').forEach(tabBtn => {
-        tabBtn.addEventListener('click', () => {
-          video.pause();
-          video.controls = false;
-          playBtn.style.display = 'block';
-          video.currentTime = 0;
-        });
-      });
+    /* nodes */
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(0,212,255,0.6)';
+      ctx.fill();
     });
 
-    // Profile pic modal logic
-    const profilePic = document.getElementById('profilePic');
+    animId = requestAnimationFrame(draw);
+  }
 
-    const profileModal = document.createElement('div');
-    profileModal.style.display = 'none';
-    profileModal.style.position = 'fixed';
-    profileModal.style.top = '0';
-    profileModal.style.left = '0';
-    profileModal.style.width = '100vw';
-    profileModal.style.height = '100vh';
-    profileModal.style.background = 'rgba(0,0,0,0.9)';
-    profileModal.style.justifyContent = 'center';
-    profileModal.style.alignItems = 'center';
-    profileModal.style.zIndex = '10000';
-    profileModal.style.cursor = 'pointer';
+  resize(); initNodes(); draw();
+  window.addEventListener('resize', () => { resize(); initNodes(); });
+})();
 
-    const fullImg = document.createElement('img');
-    fullImg.src = profilePic.src;
-    fullImg.style.maxWidth = '90vw';
-    fullImg.style.maxHeight = '90vh';
-    fullImg.style.borderRadius = '10px';
-    fullImg.style.boxShadow = '0 0 20px #ffa726';
-    profileModal.appendChild(fullImg);
+/* ─── TYPEWRITER ─── */
+(function() {
+  const lines = [
+    'Network Administrator',
+    'Fortinet Firewall Expert',
+    'CCNA Certified',
+    'VPN & Security Specialist',
+    'Multi-Branch Infra Manager'
+  ];
+  let li = 0, ci = 0, del = false;
+  const el = document.getElementById('typewriter');
 
-    document.body.appendChild(profileModal);
-
-    profilePic.addEventListener('click', () => {
-      profileModal.style.display = 'flex';
-    });
-
-    profileModal.addEventListener('click', () => {
-      profileModal.style.display = 'none';
-    });
-  </script>
+  function tick() {
+    const cur = lines[li];
+    if (!del) {
+      ci++;
+      el.textContent = cur.slice(0, ci);
+      if (ci === cur.length) { del = true; setTimeout(tick, 2000); return; }
+    } else {
+      ci--;
+      el.textContent = cur.slice(0, ci);
+      if (ci === 0) { del = false; li = (li+1) % lines.length; }
+    }
+    setTimeout(tick, del ? 40 : 80);
+  }
+  tick();
+})();
+</script>
 </body>
-
 </html>
